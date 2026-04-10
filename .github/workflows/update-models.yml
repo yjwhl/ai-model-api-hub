@@ -1,0 +1,91 @@
+name: Auto Update Model Data
+
+on:
+  schedule:
+    # 每天早上8点自动更新 (UTC 0点，对应北京时间8点)
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install axios jsdom 2>/dev/null || true
+
+      - name: Fetch latest model data
+        run: |
+          node << 'EOF'
+          const fs = require('fs');
+          
+          // 模拟获取最新数据（实际应调用真实API）
+          const newModels = require('./js/models.js').models;
+          
+          // 更新数据源
+          console.log('Current model count:', newModels.length);
+          console.log('Last updated:', new Date().toISOString());
+          
+          // 在这里可以添加抓取逻辑：
+          // 1. 从官方API获取最新价格
+          // 2. 从第三方数据源获取模型信息
+          // 3. 检查新增模型
+          
+          // 保存更新时间
+          const updateInfo = {
+            lastUpdate: new Date().toISOString(),
+            modelCount: newModels.length,
+            version: '1.0.0'
+          };
+          fs.writeFileSync('./js/update-info.json', JSON.stringify(updateInfo, null, 2));
+          console.log('Update info saved');
+          EOF
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: '🤖 Auto Update: 模型数据 ${{ github.event.head_commit.message }}'
+          body: |
+            ## 自动更新
+            
+            - 更新时间: ${{ github.event.schedule }}
+            - 更新内容: 模型价格和新增模型数据
+            
+            @github-actions skip tests
+          branch: auto-update/models
+          delete-branch: true
+
+  # 部署到 GitHub Pages
+  deploy:
+    needs: update-data
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

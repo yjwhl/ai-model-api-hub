@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型API广场 - 最全AI模型API信息汇总</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #22d3ee;
+            --accent: #f472b6;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #c084fc 100%);
+            --gradient-2: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            --gradient-3: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 2rem;
+            position: sticky;
+            top: 73px;
+            z-index: 99;
+        }
+
+        .nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+        }
+
+        .nav-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Comparison Toggle */
+        .compare-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .compare-toggle:hover {
+            border-color: var(--primary);
+        }
+
+        .compare-toggle.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .compare-toggle input {
+            display: none;
+        }
+
+        .compare-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-muted);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .compare-toggle.active .compare-checkbox {
+            background: white;
+            border-color: white;
+        }
+
+        .compare-toggle.active .compare-checkbox::after {
+            content: "✓";
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Grid */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Model Card */
+        .model-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .model-card:hover::before {
+            opacity: 1;
+        }
+
+        .model-card.compare-selected {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .model-provider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .provider-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .provider-name {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .model-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .model-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--primary);
+            margin-right: 0.25rem;
+        }
+
+        .model-badge.new {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .model-badge.hot {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .model-badge.free {
+            background: rgba(34, 211, 238, 0.2);
+            color: var(--secondary);
+        }
+
+        .model-badge.opensource {
+            background: rgba(244, 114, 182, 0.2);
+            color: var(--accent);
+        }
+
+        /* Compare Checkbox on Card */
+        .card-compare {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .card-compare input {
+            display: none;
+        }
+
+        .card-compare label {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--text-muted);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .card-compare input:checked + label {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .card-compare input:checked + label::after {
+            content: "✓";
+            color: var(--bg-dark);
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Price Section */
+        .price-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .price-item {
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .price-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .price-value.highlight {
+            color: var(--secondary);
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Context Window */
+        .context-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-dark);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .context-icon {
+            font-size: 0.9rem;
+        }
+
+        .context-label {
+            color: var(--text-muted);
+        }
+
+        .context-value {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Specialties */
+        .specialties {
+            padding: 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .specialties-title {
+            font-size: 0.7rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .specialties-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Card Actions */
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+        }
+
+        /* Comparison Modal */
+        .compare-panel {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(200%);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            z-index: 200;
+        }
+
+        .compare-panel.visible {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .compare-count {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .compare-count strong {
+            color: var(--secondary);
+        }
+
+        .compare-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-compare {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-clear {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-clear:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .btn-start-compare {
+            background: var(--secondary);
+            color: var(--bg-dark);
+        }
+
+        .btn-start-compare:hover {
+            background: #06b6d4;
+        }
+
+        /* Comparison Table */
+        .compare-table-container {
+            display: none;
+            max-width: 1600px;
+            margin: 0 auto 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .compare-table-container.visible {
+            display: block;
+        }
+
+        .compare-table-header {
+            padding: 1rem 1.5rem;
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .compare-table-header h3 {
+            font-size: 1rem;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-table th {
+            background: var(--bg-dark);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .compare-table td {
+            font-size: 0.9rem;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state-text {
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats-bar {
+                justify-content: center;
+            }
+
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-section {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .compare-panel {
+                left: 1rem;
+                right: 1rem;
+                transform: translateX(0) translateY(200%);
+            }
+
+            .compare-panel.visible {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .model-card {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .model-card:nth-child(1) { animation-delay: 0.05s; }
+        .model-card:nth-child(2) { animation-delay: 0.1s; }
+        .model-card:nth-child(3) { animation-delay: 0.15s; }
+        .model-card:nth-child(4) { animation-delay: 0.2s; }
+        .model-card:nth-child(5) { animation-delay: 0.25s; }
+        .model-card:nth-child(6) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🤖</div>
+                <div>
+                    <div class="logo-text">大模型API广场</div>
+                    <div class="logo-sub">AI Model API Hub</div>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalModels">35+</div>
+                    <div class="stat-label">模型数量</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">服务商</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">实时</div>
+                    <div class="stat-label">数据更新</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav">
+            <button class="nav-btn active" data-filter="all">全部</button>
+            <button class="nav-btn" data-filter="tier1">🏆 顶级旗舰</button>
+            <button class="nav-btn" data-filter="tier2">⚡ 性价比</button>
+            <button class="nav-btn" data-filter="tier3">💰 经济实惠</button>
+            <button class="nav-btn" data-filter="china">🇨🇳 国产模型</button>
+            <button class="nav-btn" data-filter="free">🆓 免费使用</button>
+            <button class="nav-btn" data-filter="opensource">🔓 开源模型</button>
+            <button class="nav-btn" data-filter="reasoning">🧠 推理模型</button>
+            <button class="nav-btn" data-filter="multimodal">🎨 多模态</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Filters -->
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索模型名称、厂商...">
+            </div>
+            <select class="filter-select" id="providerFilter">
+                <option value="">全部厂商</option>
+                <option value="openai">OpenAI</option>
+                <option value="anthropic">Anthropic</option>
+                <option value="google">Google</option>
+                <option value="deepseek">DeepSeek</option>
+                <option value="meta">Meta</option>
+                <option value="mistral">Mistral</option>
+                <option value="xai">xAI</option>
+                <option value="baidu">百度</option>
+                <option value="aliyun">阿里云</option>
+                <option value="tencent">腾讯</option>
+                <option value="bytedance">字节跳动</option>
+                <option value="zhipuai">智谱AI</option>
+                <option value="moonshot">月之暗面</option>
+                <option value="iflytek">讯飞</option>
+                <option value="intern">上海AI Lab</option>
+            </select>
+            <select class="filter-select" id="priceFilter">
+                <option value="">不限价格</option>
+                <option value="free">完全免费</option>
+                <option value="cheap"><$0.5/1K</option>
+                <option value="mid">$0.5-$3/1K</option>
+                <option value="expensive">>$3/1K</option>
+            </select>
+            <div class="compare-toggle" id="compareToggle">
+                <input type="checkbox" id="enableCompare">
+                <div class="compare-checkbox"></div>
+                <span style="font-size: 0.85rem;">对比模式</span>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="compare-table-container" id="compareTableContainer">
+            <div class="compare-table-header">
+                <h3>📊 模型对比</h3>
+                <button class="btn-clear" onclick="clearComparison()">关闭</button>
+            </div>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>对比项</th>
+                        <th id="compareHeader1"></th>
+                        <th id="compareHeader2"></th>
+                        <th id="compareHeader3"></th>
+                    </tr>
+                </thead>
+                <tbody id="compareTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Model Grid -->
+        <div class="model-grid" id="modelGrid">
+            <!-- Cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">🔍</div>
+            <div class="empty-state-text">没有找到符合条件的模型</div>
+        </div>
+    </main>
+
+    <!-- Compare Panel -->
+    <div class="compare-panel" id="comparePanel">
+        <div class="compare-count">已选择 <strong id="compareCount">0</strong> 个模型</div>
+        <div class="compare-actions">
+            <button class="btn-compare btn-clear" onclick="clearComparison()">清空</button>
+            <button class="btn-compare btn-start-compare" onclick="showComparison()">开始对比</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>数据更新时间：2026年4月 | 价格单位：美元/千Token</p>
+            <p>数据来源：各厂商官方文档 | <a href="https://github.com" target="_blank">纠错/贡献</a></p>
+        </div>
+    </footer>
+
+    <!-- 模型数据（独立文件方便更新） -->
+    <script src="js/models.js"></script>
+    <script>
+        // 从外部文件加载模型数据
+        const models = MODELS_DATA.models;
+
+        // State
+        let currentFilter = 'all';
+        let compareList = [];
+        let enableCompare = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderModels(models);
+            updateStats();
+            setupEventListeners();
+        });
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    filterModels();
+                });
+            });
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', filterModels);
+
+            // Filters
+            document.getElementById('providerFilter').addEventListener('change', filterModels);
+            document.getElementById('priceFilter').addEventListener('change', filterModels);
+
+            // Compare toggle
+            document.getElementById('compareToggle').addEventListener('click', () => {
+                enableCompare = !enableCompare;
+                document.getElementById('compareToggle').classList.toggle('active', enableCompare);
+                document.getElementById('enableCompare').checked = enableCompare;
+                updateCompareVisibility();
+            });
+        }
+
+        // Filter Models
+        function filterModels() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const providerFilter = document.getElementById('providerFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+
+            let filtered = models.filter(model => {
+                // Category filter
+                if (currentFilter !== 'all' && !model.category.includes(currentFilter)) {
+                    return false;
+                }
+
+                // Provider filter
+                if (providerFilter && model.providerKey !== providerFilter) {
+                    return false;
+                }
+
+                // Price filter
+                if (priceFilter) {
+                    if (priceFilter === 'free' && model.inputPrice !== 0) return false;
+                    if (priceFilter === 'cheap' && model.inputPrice >= 0.5) return false;
+                    if (priceFilter === 'mid' && (model.inputPrice < 0.5 || model.inputPrice >= 3)) return false;
+                    if (priceFilter === 'expensive' && model.inputPrice < 3) return false;
+                }
+
+                // Search filter
+                if (searchTerm) {
+                    const searchString = `${model.name} ${model.provider} ${model.features.join(' ')} ${model.specialties}`.toLowerCase();
+                    if (!searchString.includes(searchTerm)) return false;
+                }
+
+                return true;
+            });
+
+            renderModels(filtered);
+        }
+
+        // Render Models
+        function renderModels(modelList) {
+            const grid = document.getElementById('modelGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (modelList.length === 0) {
+                grid.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            grid.innerHTML = modelList.map(model => createModelCard(model)).join('');
+
+            // Add compare checkbox listeners
+            document.querySelectorAll('.card-compare input').forEach(input => {
+                input.addEventListener('change', handleCompareChange);
+            });
+        }
+
+        // Create Model Card
+        function createModelCard(model) {
+            const isCompareSelected = compareList.includes(model.id);
+            const badgesHtml = model.badges.map(badge => {
+                const labels = { new: '🆕 新模型', hot: '🔥 热门', free: '🆓 免费', opensource: '🔓 开源' };
+                return `<span class="model-badge ${badge}">${labels[badge]}</span>`;
+            }).join('');
+
+            const priceDisplay = model.inputPrice === 0
+                ? '<span class="price-value highlight">免费</span>'
+                : `$${model.inputPrice.toFixed(2)}`;
+
+            const outputPriceDisplay = model.outputPrice === 0
+                ? '<span class="price-value highlight">免费</span>'
+                : `$${model.outputPrice.toFixed(2)}`;
+
+            return `
+                <div class="model-card ${isCompareSelected ? 'compare-selected' : ''}" data-id="${model.id}">
+                    ${enableCompare ? `
+                    <div class="card-compare">
+                        <input type="checkbox" id="compare-${model.id}" ${isCompareSelected ? 'checked' : ''}>
+                        <label for="compare-${model.id}"></label>
+                    </div>
+                    ` : ''}
+                    <div class="card-header">
+                        <div>
+                            <div class="model-provider">
+                                <div class="provider-logo">${model.providerLogo}</div>
+                                <span class="provider-name">${model.provider}</span>
+                            </div>
+                            <div class="model-name">${model.name}</div>
+                            ${badgesHtml}
+                        </div>
+                    </div>
+                    <div class="price-section">
+                        <div class="price-item">
+                            <div class="price-label">输入价格</div>
+                            <div class="price-value">${priceDisplay}</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">输出价格</div>
+                            <div class="price-value">${outputPriceDisplay}</div>
+                        </div>
+                    </div>
+                    <div class="context-info">
+                        <span class="context-icon">📜</span>
+                        <span class="context-label">上下文窗口:</span>
+                        <span class="context-value">${model.contextWindow}</span>
+                    </div>
+                    <div class="features">
+                        ${model.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                    </div>
+                    <div class="specialties">
+                        <div class="specialties-title">核心优势</div>
+                        <div class="specialties-text">${model.specialties}</div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="${model.url}" target="_blank" class="btn btn-primary">访问官网</a>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('${model.name}')">复制名称</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update Stats
+        function updateStats() {
+            document.getElementById('totalModels').textContent = models.length + '+';
+        }
+
+        // Compare Functions
+        function handleCompareChange(e) {
+            const modelId = e.target.closest('.model-card').dataset.id;
+
+            if (e.target.checked) {
+                if (compareList.length < 3) {
+                    compareList.push(modelId);
+                } else {
+                    e.target.checked = false;
+                    alert('最多只能对比3个模型');
+                    return;
+                }
+            } else {
+                compareList = compareList.filter(id => id !== modelId);
+            }
+
+            updateComparePanel();
+            updateCompareVisibility();
+        }
+
+        function updateComparePanel() {
+            const panel = document.getElementById('comparePanel');
+            const count = document.getElementById('compareCount');
+
+            count.textContent = compareList.length;
+            panel.classList.toggle('visible', compareList.length > 0);
+        }
+
+        function updateCompareVisibility() {
+            // Re-render to show/hide compare checkboxes
+            filterModels();
+
+            // Update card selected states
+            document.querySelectorAll('.model-card').forEach(card => {
+                card.classList.toggle('compare-selected', compareList.includes(card.dataset.id));
+            });
+        }
+
+        function clearComparison() {
+            compareList = [];
+            updateComparePanel();
+            updateCompareVisibility();
+            document.getElementById('compareTableContainer').classList.remove('visible');
+
+            // Uncheck all compare checkboxes
+            document.querySelectorAll('.card-compare input').forEach(input => {
+                input.checked = false;
+            });
+        }
+
+        function showComparison() {
+            if (compareList.length < 2) {
+                alert('请至少选择2个模型进行对比');
+                return;
+            }
+
+            const compareModels = compareList.map(id => models.find(m => m.id === id));
+            const container = document.getElementById('compareTableContainer');
+            const tbody = document.getElementById('compareTableBody');
+
+            // Set headers
+            document.getElementById('compareHeader1').textContent = compareModels[0]?.name || '';
+            document.getElementById('compareHeader2').textContent = compareModels[1]?.name || '';
+            document.getElementById('compareHeader3').textContent = compareModels[2]?.name || '';
+
+            // Generate comparison rows
+            const rows = [
+                { label: '厂商', key: 'provider' },
+                { label: '等级', key: 'tierLabel' },
+                { label: '输入价格', key: 'inputPrice', format: v => v === 0 ? '免费' : `$${v.toFixed(2)}` },
+                { label: '输出价格', key: 'outputPrice', format: v => v === 0 ? '免费' : `$${v.toFixed(2)}` },
+                { label: '上下文窗口', key: 'contextWindow' },
+                { label: '核心能力', key: 'specialties' },
+                { label: '特色功能', key: 'features', format: v => Array.isArray(v) ? v.join(', ') : v },
+            ];
+
+            tbody.innerHTML = rows.map(row => `
+                <tr>
+                    <th>${row.label}</th>
+                    ${compareModels.map(m => {
+                        let value = m[row.key];
+                        if (row.format) value = row.format(value);
+                        return `<td>${value || '-'}</td>`;
+                    }).join('')}
+                </tr>
+            `).join('');
+
+            container.classList.add('visible');
+
+            // Scroll to comparison table
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Utility Functions
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Simple visual feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '已复制!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>
