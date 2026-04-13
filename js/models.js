@@ -4,7 +4,7 @@
 
 const MODELS_DATA = {
     version: "2.0.0",
-    lastUpdate: "2026-04-10",
+    lastUpdate: "2026-04-13",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -25,7 +25,7 @@ const MODELS_DATA = {
             contextWindow: 1000000,
             contextLabel: "1M",
             features: ["代码能力最强", "SWE-bench 80.8%", "深度推理", "安全对齐"],
-            specialties: "编程能力业界最强，SWE-bench测试中创下SOTA",
+            specialties: "编程能力业界最强，SWE-bench测试中创下SOTA，最大输出128K tokens",
             scenarios: ["代码生成", "复杂推理", "长文档分析"],
             capabilities: {
                 coding: 5,
@@ -91,19 +91,19 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "gpt-5",
-            name: "GPT-5",
+            id: "gpt-5-4",
+            name: "GPT-5.4",
             provider: "OpenAI",
             providerKey: "openai",
             providerLogo: "O",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 1.25,
-            outputPrice: 10.00,
+            inputPrice: 2.50,
+            outputPrice: 15.00,
             contextWindow: 400000,
             contextLabel: "400K",
             features: ["综合能力均衡", "多模态", "Function Calling", "GPTs生态"],
-            specialties: "综合能力最强，生态最成熟",
+            specialties: "综合能力最强，生态最成熟，GPT-5系列最新版",
             scenarios: ["通用对话", "代码生成", "多模态"],
             capabilities: {
                 coding: 5,
@@ -124,7 +124,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["hot"],
+            badges: ["hot", "new"],
             category: ["tier1", "multimodal", "coding"],
             url: "https://platform.openai.com",
             chinaAccessible: false
@@ -210,6 +210,45 @@ const MODELS_DATA = {
 
         // ========== 性价比模型 ==========
         {
+            id: "o4-mini",
+            name: "o4-mini",
+            provider: "OpenAI",
+            providerKey: "openai",
+            providerLogo: "O",
+            tier: 2,
+            tierLabel: "性价比首选",
+            inputPrice: 1.10,
+            outputPrice: 4.40,
+            contextWindow: 200000,
+            contextLabel: "200K",
+            features: ["最强性价比推理", "STEM专长", "复杂问题", "速度快"],
+            specialties: "o系列最具性价比推理模型，比o3便宜50%，数学代码表现优异",
+            scenarios: ["复杂推理", "数学计算", "代码优化"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 4,
+                multimodal: 3,
+                speed: 4,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "较快",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new", "hot"],
+            category: ["tier2", "reasoning", "coding"],
+            url: "https://platform.openai.com",
+            chinaAccessible: false
+        },
+        {
             id: "claude-sonnet-4-6",
             name: "Claude Sonnet 4.6",
             provider: "Anthropic",
@@ -222,7 +261,7 @@ const MODELS_DATA = {
             contextWindow: 1000000,
             contextLabel: "1M",
             features: ["最佳性价比", "SWE-bench 79.6%", "代码能力强", "快速响应"],
-            specialties: "编程能力接近Opus，价格更实惠",
+            specialties: "编程能力接近Opus，价格更实惠，最大输出64K tokens",
             scenarios: ["代码生成", "日常对话", "长文档"],
             capabilities: {
                 coding: 5,
@@ -249,25 +288,64 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "gpt-5-3-codex",
-            name: "GPT-5.3 Codex",
+            id: "claude-haiku-4-5",
+            name: "Claude Haiku 4.5",
+            provider: "Anthropic",
+            providerKey: "anthropic",
+            providerLogo: "A",
+            tier: 3,
+            tierLabel: "经济实惠",
+            inputPrice: 1.00,
+            outputPrice: 5.00,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["高吞吐低成本", "快速响应", "百万上下文", "Agent任务"],
+            specialties: "Claude系列最经济款，高并发场景首选，最大输出8K tokens",
+            scenarios: ["高频任务", "批量处理", "简单对话"],
+            capabilities: {
+                coding: 4,
+                reasoning: 3,
+                chinese: 4,
+                multimodal: 3,
+                speed: 5,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "极高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
+            category: ["tier3", "value"],
+            url: "https://www.anthropic.com/api",
+            chinaAccessible: false
+        },
+        {
+            id: "gpt-5-4-mini",
+            name: "GPT-5.4 mini",
             provider: "OpenAI",
             providerKey: "openai",
             providerLogo: "O",
             tier: 2,
             tierLabel: "性价比首选",
-            inputPrice: 2.00,
-            outputPrice: 10.00,
+            inputPrice: 0.75,
+            outputPrice: 4.50,
             contextWindow: 200000,
             contextLabel: "200K",
-            features: ["Agent编程专用", "速度快25%", "32K最大输出", "代码优化"],
-            specialties: "专为AI Agent编程设计，速度比GPT-5.2快25%",
-            scenarios: ["代码生成", "AI Agent", "代码优化"],
+            features: ["GPT-5级别智能", "速度快", "性价比强", "多模态支持"],
+            specialties: "GPT-5.4 mini：旗舰智能的性价比版本，比Claude Sonnet便宜4倍",
+            scenarios: ["日常对话", "代码生成", "内容创作"],
             capabilities: {
                 coding: 5,
                 reasoning: 4,
                 chinese: 4,
-                multimodal: 3,
+                multimodal: 4,
                 speed: 5,
                 stability: 5
             },
@@ -282,8 +360,8 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["new"],
-            category: ["tier2", "coding"],
+            badges: ["new", "hot"],
+            category: ["tier2", "coding", "value"],
             url: "https://platform.openai.com",
             chinaAccessible: false
         },
@@ -378,7 +456,7 @@ const MODELS_DATA = {
             contextWindow: 128000,
             contextLabel: "128K",
             features: ["推理价格之王", "开源", "长思维链", "数学能力强"],
-            specialties: "推理场景性价比之王，长思维链推理",
+            specialties: "推理场景性价比之王，底层V3.2思考模式，最大输出64K tokens",
             scenarios: ["推理分析", "数学计算", "代码生成"],
             capabilities: {
                 coding: 5,
@@ -415,11 +493,11 @@ const MODELS_DATA = {
             tier: 3,
             tierLabel: "经济实惠",
             inputPrice: 0.27,
-            outputPrice: 1.10,
+            outputPrice: 0.41,
             contextWindow: 128000,
             contextLabel: "128K",
             features: ["中文性价比极高", "开源", "代码能力强", "快速生成"],
-            specialties: "中文场景性价比最高，开源可商用",
+            specialties: "中文场景性价比最高，开源可商用，缓存命中仅$0.028/M tokens",
             scenarios: ["日常对话", "内容创作", "代码生成"],
             capabilities: {
                 coding: 4,
@@ -485,6 +563,45 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
+            id: "gemini-2-5-pro",
+            name: "Gemini 2.5 Pro",
+            provider: "Google",
+            providerKey: "google",
+            providerLogo: "G",
+            tier: 2,
+            tierLabel: "性价比首选",
+            inputPrice: 1.25,
+            outputPrice: 10.00,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["生产就绪", "百万上下文", "深度推理", "多模态"],
+            specialties: "Google最强生产就绪模型，百万上下文，推理能力强劲",
+            scenarios: ["复杂推理", "长文档", "代码生成"],
+            capabilities: {
+                coding: 4,
+                reasoning: 5,
+                chinese: 4,
+                multimodal: 5,
+                speed: 4,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "快",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "极高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["hot"],
+            category: ["tier2", "multimodal", "reasoning", "longcontext"],
+            url: "https://ai.google.dev",
+            chinaAccessible: false
+        },
+        {
             id: "gemini-2-5-flash",
             name: "Gemini 2.5 Flash",
             provider: "Google",
@@ -492,12 +609,12 @@ const MODELS_DATA = {
             providerLogo: "G",
             tier: 3,
             tierLabel: "经济实惠",
-            inputPrice: 0.15,
-            outputPrice: 0.60,
+            inputPrice: 0.30,
+            outputPrice: 2.50,
             contextWindow: 1000000,
             contextLabel: "1M",
             features: ["高速处理", "百万上下文", "批量任务", "极速响应"],
-            specialties: "高速+百万上下文，性价比极高",
+            specialties: "高速+百万上下文，性价比极高，每天免费1000次请求",
             scenarios: ["批量处理", "长文档", "高并发"],
             capabilities: {
                 coding: 3,
@@ -536,7 +653,7 @@ const MODELS_DATA = {
             contextWindow: 1000000,
             contextLabel: "1M",
             features: ["最低价GPT", "百万上下文", "快速响应", "分类提取"],
-            specialties: "最低价GPT模型，百万级上下文",
+            specialties: "最低价GPT模型，百万级上下文，缓存折扣可低至$0.025/M",
             scenarios: ["简单任务", "批量处理", "文本分类"],
             capabilities: {
                 coding: 3,
@@ -722,18 +839,18 @@ const MODELS_DATA = {
         },
         {
             id: "qwen3-series",
-            name: "通义千问 Qwen3",
+            name: "通义千问 Qwen3 Max",
             provider: "阿里云",
             providerKey: "aliyun",
             providerLogo: "阿",
             tier: 2,
             tierLabel: "性价比首选",
             inputPrice: 0.50,
-            outputPrice: 1.50,
-            contextWindow: 128000,
-            contextLabel: "128K",
+            outputPrice: 2.00,
+            contextWindow: 256000,
+            contextLabel: "256K",
             features: ["开源可商用", "多尺寸", "代码能力强", "中文优化"],
-            specialties: "阿里开源系列，多尺寸可选，中文优化好",
+            specialties: "阿里最强模型，Qwen3 Max支持思维链，Qwen Plus性价比极高（$0.12/$0.29）",
             scenarios: ["日常对话", "代码生成", "内容创作"],
             capabilities: {
                 coding: 5,
@@ -754,7 +871,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["opensource", "china", "hot"],
+            badges: ["opensource", "china", "hot", "new"],
             category: ["tier2", "opensource", "china", "coding"],
             url: "https://bailian.console.aliyun.com",
             chinaAccessible: true
@@ -767,12 +884,12 @@ const MODELS_DATA = {
             providerLogo: "豆",
             tier: 2,
             tierLabel: "性价比首选",
-            inputPrice: 0.30,
-            outputPrice: 0.90,
+            inputPrice: 0.04,
+            outputPrice: 0.12,
             contextWindow: 128000,
             contextLabel: "128K",
-            features: ["推理单价极低", "多模态", "字节生态", "高并发"],
-            specialties: "国内性价比之王，多模态能力强",
+            features: ["国内最低价", "多模态", "字节生态", "高并发"],
+            specialties: "国内最便宜大模型API，¥0.0008/¥0.002（百万tokens），多模态能力强",
             scenarios: ["多模态对话", "内容创作", "高并发"],
             capabilities: {
                 coding: 4,
@@ -793,9 +910,9 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["china", "hot", "value"],
+            badges: ["china", "hot", "value", "new"],
             category: ["tier2", "multimodal", "china", "value"],
-            url: "https:// volcengine.volcengine.com",
+            url: "https://www.volcengine.com/product/doubao",
             chinaAccessible: true
         },
         {
@@ -845,12 +962,12 @@ const MODELS_DATA = {
             providerLogo: "腾",
             tier: 2,
             tierLabel: "性价比首选",
-            inputPrice: 0.60,
-            outputPrice: 1.80,
+            inputPrice: 0.014,
+            outputPrice: 0.069,
             contextWindow: 128000,
             contextLabel: "128K",
-            features: ["数学能力强", "腾讯生态", "多模态", "实时交互"],
-            specialties: "数学能力领先，与腾讯生态深度整合",
+            features: ["大幅降价", "腾讯生态", "多模态", "实时交互"],
+            specialties: "腾讯大幅降价，¥0.1/¥0.5（百万tokens），与腾讯生态深度整合",
             scenarios: ["腾讯生态", "数学计算", "多模态"],
             capabilities: {
                 coding: 4,
@@ -871,7 +988,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["china"],
+            badges: ["china", "new"],
             category: ["tier2", "multimodal", "china"],
             url: "https://cloud.tencent.com",
             chinaAccessible: true
