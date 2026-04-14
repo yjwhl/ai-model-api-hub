@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.0.0",
-    lastUpdate: "2026-04-13",
+    version: "2.1.0",
+    lastUpdate: "2026-04-15",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -675,6 +675,45 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: [],
+            category: ["tier3", "value"],
+            url: "https://platform.openai.com",
+            chinaAccessible: false
+        },
+        {
+            id: "gpt-5-4-nano",
+            name: "GPT-5.4 Nano",
+            provider: "OpenAI",
+            providerKey: "openai",
+            providerLogo: "O",
+            tier: 3,
+            tierLabel: "经济实惠",
+            inputPrice: 0.20,
+            outputPrice: 1.25,
+            contextWindow: 270000,
+            contextLabel: "270K",
+            features: ["最新入门级", "270K上下文", "极速响应", "缓存折扣大"],
+            specialties: "GPT-5.4 Nano：最新入门级GPT模型，270K上下文，缓存输入仅$0.02/M",
+            scenarios: ["简单任务", "批量处理", "文本分类"],
+            capabilities: {
+                coding: 3,
+                reasoning: 3,
+                chinese: 4,
+                multimodal: 2,
+                speed: 5,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "极高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
             category: ["tier3", "value"],
             url: "https://platform.openai.com",
             chinaAccessible: false
