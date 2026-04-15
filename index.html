@@ -4,11 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大模型API广场 - 专业级AI模型价格对比平台</title>
+    <meta name="description" content="最全面的AI大模型API信息汇总网站，覆盖OpenAI、Anthropic、Google、DeepSeek及国产大模型。支持价格对比、成本计算、场景推荐。免费模型、性价比之选一目了然。">
+    <meta name="keywords" content="AI模型API, 大模型价格对比, OpenAI API, Claude API, Gemini API, DeepSeek API, 智谱AI, 月之暗面API, 通义千问API, 文心一言API, AI编程, 免费AI API">
+    <meta name="author" content="AI Model Hub">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="大模型API广场 - 专业级AI模型价格对比平台">
+    <meta property="og:description" content="最全面的AI大模型API信息汇总网站，支持35+模型价格对比、成本计算、场景推荐">
+    <meta property="og:url" content="https://yjwhl.github.io/ai-model-api-hub">
+    <meta property="og:site_name" content="大模型API广场">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="大模型API广场 - AI模型价格对比">
+    <meta name="twitter:description" content="35+AI大模型API信息汇总，价格对比、成本计算一站式平台">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a0f1a">
+    <meta name="msapplication-navbutton-color" content="#0a0f1a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "大模型API广场",
+        "description": "最全面的AI大模型API信息汇总网站，支持35+模型价格对比、成本计算、场景推荐",
+        "url": "https://yjwhl.github.io/ai-model-api-hub",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "CNY",
+            "lowPrice": "0",
+            "highPrice": "100",
+            "offerCount": "35"
+        }
+    }
+    </script>
     <style>
+        /* ==================== Theme Variables ==================== */
         :root {
+            /* Dark Theme (Default) */
             --primary: #6366f1;
             --primary-light: #818cf8;
             --secondary: #22d3ee;
@@ -25,6 +73,21 @@
             --danger: #ef4444;
             --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #c084fc 100%);
             --gradient-2: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --overlay: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-dark: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --overlay: rgba(255, 255, 255, 0.9);
         }
 
         * {
@@ -39,6 +102,15 @@
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        /* Accessibility: Reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         /* Header */
@@ -813,14 +885,174 @@
             margin-bottom: 0.5rem;
         }
 
-        .compare-model-price {
+.compare-model-price {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--secondary);
         }
 
-        /* Footer */
-        .footer {
+        /* News Section */
+        .news-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .news-section .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .news-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .news-controls {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .news-filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-secondary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .news-filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .news-filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-source-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .news-source-icon.openai { background: #10a37f; color: white; }
+        .news-source-icon.anthropic { background: #d4a574; color: white; }
+        .news-source-icon.google { background: #4285f4; color: white; }
+        .news-source-icon.deepseek { background: #7c3aed; color: white; }
+        .news-source-icon.china { background: #ef4444; color: white; }
+
+        .news-source-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .news-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-summary {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            border-radius: 4px;
+        }
+
+        .news-tag.price { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .news-tag.model { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .news-tag.feature { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .news-tag.policy { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+        .news-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .load-more-btn {
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
             text-align: center;
             padding: 2rem;
             border-top: 1px solid var(--border);
@@ -849,35 +1081,629 @@
             font-weight: 600;
         }
 
-        /* Responsive */
+        /* ==================== Responsive Design ==================== */
+        
+        /* Large Desktop - 1400px+ */
+        @media (max-width: 1600px) {
+            .header-content {
+                max-width: 1400px;
+            }
+            .model-grid {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+        }
+        
+        /* Desktop - 1200px */
+        @media (max-width: 1200px) {
+            .header-content {
+                max-width: 100%;
+            }
+            .model-grid {
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            }
+        }
+
+        /* Tablet Landscape - 1024px */
+        @media (max-width: 1024px) {
+            .header {
+                padding: 0.75rem 1rem;
+            }
+            
+            .header-content {
+                gap: 0.75rem;
+            }
+            
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.65rem;
+            }
+            
+            .stat-value {
+                font-size: 1.25rem;
+            }
+            
+            .stat-label {
+                font-size: 0.6rem;
+            }
+            
+            .main {
+                padding: 1rem;
+            }
+            
+            .model-grid {
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 1rem;
+            }
+            
+            .model-card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Tablet Portrait - 768px */
         @media (max-width: 768px) {
+            /* Header */
+            .header {
+                padding: 0.5rem 0.75rem;
+            }
+            
             .header-content {
                 flex-direction: column;
-                text-align: center;
+                gap: 0.5rem;
             }
-
-            .stats-bar {
+            
+            .logo {
+                width: 100%;
                 justify-content: center;
             }
-
-            .model-grid {
-                grid-template-columns: 1fr;
+            
+            .logo-sub {
+                display: none;
             }
-
+            
+            .stats-bar {
+                width: 100%;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            /* Scenario Tabs */
+            .scenario-tabs {
+                padding: 0.5rem 0.75rem;
+                top: 85px;
+            }
+            
+            .scenario-tabs-inner {
+                gap: 0.35rem;
+                padding-bottom: 0.25rem;
+            }
+            
+            .scenario-tab {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+                border-radius: 6px;
+            }
+            
+            /* Main */
+            .main {
+                padding: 0.75rem;
+            }
+            
+            /* Filter Bar */
             .filter-bar {
                 flex-direction: column;
+                gap: 0.75rem;
             }
-
+            
             .search-box {
                 width: 100%;
+                min-width: unset;
             }
-
+            
+            .search-box input {
+                padding: 0.65rem 1rem 0.65rem 2.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .filter-select {
+                width: 100%;
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .sort-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* Model Grid */
+            .model-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            /* Model Card */
+            .model-card {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .model-name {
+                font-size: 1rem;
+            }
+            
+            .provider-name {
+                font-size: 0.75rem;
+            }
+            
+            .tier-badge {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.5rem;
+            }
+            
+            .card-badges {
+                gap: 0.35rem;
+            }
+            
+            .badge {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.4rem;
+            }
+            
+            .price-section {
+                margin: 0.75rem 0;
+            }
+            
+            .price-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .price-item {
+                width: 100%;
+            }
+            
+            .price-label {
+                font-size: 0.65rem;
+            }
+            
+            .price-value {
+                font-size: 0.95rem;
+            }
+            
+            .energy-bar {
+                height: 6px;
+            }
+            
+            .context-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
+            }
+            
             .scene-cost {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+                margin: 0.5rem 0;
             }
-
+            
+            .scene-item {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.65rem;
+            }
+            
             .capabilities {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+                margin: 0.5rem 0;
+            }
+            
+            .capability {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.65rem;
+            }
+            
+            .rating {
+                font-size: 0.7rem;
+                gap: 0.25rem;
+            }
+            
+            .rating-label {
+                font-size: 0.6rem;
+            }
+            
+            .china-tag {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.5rem;
+            }
+            
+            .card-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 0.75rem;
+            }
+            
+            .card-actions button {
+                width: 100%;
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .compare-checkbox {
+                font-size: 0.75rem;
+            }
+            
+            /* Compare Bar */
+            .compare-bar {
+                padding: 0.75rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .compare-bar-text {
+                font-size: 0.85rem;
+            }
+            
+            .compare-actions {
+                width: 100%;
+                gap: 0.5rem;
+            }
+            
+            .compare-actions button {
+                flex: 1;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            /* Cost Calculator */
+            .calc-modal-content {
+                width: 95%;
+                max-height: 90vh;
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            
+            .calc-title {
+                font-size: 1.1rem;
+            }
+            
+            .scenario-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            
+            .scenario-btn {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .calc-input-group {
+                flex-direction: column;
+            }
+            
+            .calc-input-group label,
+            .calc-input-group input {
+                width: 100%;
+                font-size: 0.85rem;
+            }
+            
+            .result-card {
+                padding: 0.75rem;
+            }
+            
+            .result-header {
+                font-size: 0.8rem;
+            }
+            
+            .result-price {
+                font-size: 1.1rem;
+            }
+            
+            .result-detail {
+                font-size: 0.7rem;
+            }
+            
+            /* Floating Button */
+            .calc-btn {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+            
+            /* Empty State */
+            .empty-state {
+                padding: 3rem 1rem;
+            }
+            
+            .empty-icon {
+                font-size: 3rem;
+            }
+            
+            .empty-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile Small - 480px */
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.4rem 0.5rem;
+            }
+            
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            
+            .logo-text {
+                font-size: 1rem;
+            }
+            
+            .stats-bar {
+                gap: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.1rem;
+            }
+            
+            .stat-label {
+                font-size: 0.55rem;
+            }
+            
+            .scenario-tabs {
+                top: 75px;
+                padding: 0.4rem 0.5rem;
+            }
+            
+            .scenario-tab {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.7rem;
+            }
+            
+            .main {
+                padding: 0.5rem;
+            }
+            
+            .model-grid {
+                gap: 0.5rem;
+            }
+            
+            .model-card {
+                padding: 0.75rem;
+                border-radius: 10px;
+            }
+            
+            .model-name {
+                font-size: 0.9rem;
+            }
+            
+            .provider-logo {
+                width: 24px;
+                height: 24px;
+                font-size: 0.8rem;
+            }
+            
+            .price-value {
+                font-size: 0.85rem;
+            }
+            
+            .card-actions button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .calc-modal-content {
+                width: 98%;
+                padding: 0.75rem;
+                border-radius: 12px;
+            }
+            
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calc-btn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 46px;
+                height: 46px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .model-card:hover {
+                transform: none;
+                border-color: var(--border);
+                box-shadow: none;
+            }
+            
+            .model-card:active {
+                transform: scale(0.98);
+                border-color: var(--primary-light);
+            }
+            
+            .scenario-tab:hover {
+                border-color: var(--border);
+            }
+            
+            .scenario-tab:active {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: white;
+            }
+            
+            .filter-select:hover,
+            .sort-btn:hover {
+                border-color: var(--border);
+            }
+            
+            .filter-select:active,
+            .sort-btn:active {
+                border-color: var(--primary);
+            }
+            
+            button:active {
+                opacity: 0.8;
+            }
+            
+            /* Larger touch targets */
+            .scenario-tab,
+            .filter-select,
+            .sort-btn,
+            .card-actions button {
+                min-height: 44px;
+            }
+        }
+        
+        /* Safe area for notched devices */
+        @supports (padding: max(0px)) {
+            .header {
+                padding-left: max(0.5rem, env(safe-area-inset-left));
+                padding-right: max(0.5rem, env(safe-area-inset-right));
+            }
+            
+            .main {
+                padding-left: max(0.5rem, env(safe-area-inset-left));
+                padding-right: max(0.5rem, env(safe-area-inset-right));
+                padding-bottom: max(1rem, env(safe-area-inset-bottom));
+            }
+            
+            .calc-btn {
+                bottom: max(1.5rem, env(safe-area-inset-bottom));
+                right: max(1rem, env(safe-area-inset-right));
+            }
+        }
+        
+        /* Landscape mode on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                position: relative;
+            }
+            
+            .scenario-tabs {
+                position: relative;
+                top: 0;
+            }
+            
+            .calc-modal-content {
+                max-height: 85vh;
+                margin-top: 5vh;
+            }
+        }
+        
+        /* News Section Responsive */
+        @media (max-width: 1024px) {
+            .news-section {
+                max-width: 100%;
+            }
+            
+            .news-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .news-section {
+                margin: 1.5rem auto;
+                padding: 0 0.75rem;
+            }
+            
+            .news-section .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            
+            .news-section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .news-controls {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.5rem;
+            }
+            
+            .news-filter-btn {
+                white-space: nowrap;
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .news-card {
+                padding: 1rem;
+            }
+            
+            .news-title {
+                font-size: 0.95rem;
+            }
+            
+            .news-summary {
+                font-size: 0.8rem;
+                -webkit-line-clamp: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .news-section {
+                margin: 1rem auto;
+            }
+            
+            .news-card {
+                padding: 0.75rem;
+            }
+            
+            .news-source-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+            
+            .news-source-name {
+                font-size: 0.75rem;
+            }
+            
+            .news-date {
+                font-size: 0.7rem;
+            }
+            
+            .load-more-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -924,6 +1750,414 @@
             z-index: 200;
         }
 
+        /* ==================== Header Actions ==================== */
+        .header-actions {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .theme-toggle,
+        .favorites-btn,
+        .shortcuts-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover,
+        .favorites-btn:hover,
+        .shortcuts-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+        }
+        
+        .favorites-btn {
+            position: relative;
+        }
+        
+        .fav-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--danger);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fav-count:empty,
+        .fav-count[data-count="0"] {
+            display: none;
+        }
+        
+        /* ==================== Toast Notifications ==================== */
+        .toast-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            pointer-events: none;
+        }
+        
+        .toast {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px var(--shadow);
+            animation: toastIn 0.3s ease;
+            pointer-events: auto;
+            max-width: 320px;
+        }
+        
+        .toast.toast-out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes toastOut {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+        
+        .toast-icon {
+            font-size: 1.25rem;
+        }
+        
+        .toast-content {
+            flex: 1;
+        }
+        
+        .toast-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.15rem;
+        }
+        
+        .toast-message {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .toast-success { border-left: 3px solid var(--success); }
+        .toast-error { border-left: 3px solid var(--danger); }
+        .toast-warning { border-left: 3px solid var(--warning); }
+        .toast-info { border-left: 3px solid var(--secondary); }
+        
+        /* ==================== Shortcuts Modal ==================== */
+        .shortcuts-modal {
+            position: fixed;
+            inset: 0;
+            background: var(--overlay);
+            backdrop-filter: blur(4px);
+            z-index: 500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease;
+        }
+        
+        .shortcuts-modal.active {
+            display: flex;
+        }
+        
+        .shortcuts-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 90%;
+            max-width: 420px;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .shortcuts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        
+        .shortcuts-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        
+        .close-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .close-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+        
+        .shortcuts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .shortcut-item:last-child {
+            border-bottom: none;
+        }
+        
+        kbd {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.25rem 0.5rem;
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .shortcut-item span {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        /* ==================== Favorite Button in Card ==================== */
+        .favorite-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            transition: transform 0.2s;
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+        
+        .favorite-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        .favorite-btn.active {
+            filter: none;
+            opacity: 1;
+        }
+        
+        .favorite-btn.active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%);
+            animation: heartPulse 1s ease infinite;
+        }
+        
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        
+        /* ==================== Skeleton Loading ==================== */
+        .skeleton {
+            background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .skeleton-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        
+        .skeleton-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skeleton-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+        }
+        
+        .skeleton-text {
+            flex: 1;
+        }
+        
+        .skeleton-title {
+            height: 20px;
+            margin-bottom: 0.5rem;
+            width: 60%;
+        }
+        
+        .skeleton-subtitle {
+            height: 14px;
+            width: 40%;
+        }
+        
+        .skeleton-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .skeleton-line {
+            height: 16px;
+            width: 100%;
+        }
+        
+        .skeleton-line.short {
+            width: 45%;
+        }
+        
+        /* ==================== Focus States ==================== */
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* ==================== Light Theme Adjustments ==================== */
+        [data-theme="light"] .scenario-tabs {
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        [data-theme="light"] .header {
+            background: rgba(248, 250, 252, 0.95);
+        }
+        
+        [data-theme="light"] .calc-btn {
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        [data-theme="light"] kbd {
+            background: var(--bg-card-hover);
+        }
+        
+        /* ==================== Responsive Header Actions ==================== */
+        @media (max-width: 768px) {
+            .header-actions {
+                position: fixed;
+                top: auto;
+                bottom: 5.5rem;
+                right: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                z-index: 90;
+            }
+            
+            .theme-toggle,
+            .favorites-btn,
+            .shortcuts-btn {
+                width: 44px;
+                height: 44px;
+                box-shadow: 0 4px 15px var(--shadow);
+            }
+            
+            .stats-bar {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-actions {
+                bottom: 4.5rem;
+                right: 0.75rem;
+            }
+        }
+        
+        /* ==================== Calc Button ==================== */
+        .calc-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s;
+            z-index: 200;
+        }
+        
         .calc-btn:hover {
             transform: scale(1.1);
         }
@@ -939,6 +2173,18 @@
                     <div class="logo-text">大模型API广场</div>
                     <div class="logo-sub">专业级AI模型价格对比平台</div>
                 </div>
+            </div>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="favorites-btn" id="favoritesBtn" aria-label="我的收藏">
+                    <span>❤️</span>
+                    <span class="fav-count" id="favCount">0</span>
+                </button>
+                <button class="shortcuts-btn" id="shortcutsBtn" aria-label="快捷键">
+                    <span>⌨️</span>
+                </button>
             </div>
             <div class="stats-bar">
                 <div class="stat-item">
@@ -1015,7 +2261,46 @@
     </main>
 
     <!-- Cost Calculator Button -->
-    <button class="calc-btn" onclick="openCalculator()" title="成本计算器">🧮</button>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Shortcuts Modal -->
+    <div class="shortcuts-modal" id="shortcutsModal">
+        <div class="shortcuts-content">
+            <div class="shortcuts-header">
+                <h3>⌨️ 键盘快捷键</h3>
+                <button class="close-btn" onclick="closeShortcuts()">×</button>
+            </div>
+            <div class="shortcuts-list">
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>K</kbd>
+                    <span>聚焦搜索框</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>D</kbd>
+                    <span>深色/浅色模式</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>F</kbd>
+                    <span>收藏/取消收藏</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>B</kbd>
+                    <span>打开成本计算器</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Esc</kbd>
+                    <span>关闭弹窗</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Tab</kbd>
+                    <span>切换筛选标签</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="calc-btn" onclick="openCalculator()" title="成本计算器 (Ctrl+B)">🧮</button>
 
     <!-- Cost Calculator Modal -->
     <div class="modal-overlay" id="calculatorModal">
@@ -1062,6 +2347,25 @@
         </div>
     </div>
 
+    <!-- News Section -->
+    <section class="news-section" id="newsSection">
+        <div class="section-header">
+            <h2>📰 大模型资讯</h2>
+            <div class="news-controls">
+                <button class="news-filter-btn active" data-source="all">全部</button>
+                <button class="news-filter-btn" data-source="openai">OpenAI</button>
+                <button class="news-filter-btn" data-source="anthropic">Anthropic</button>
+                <button class="news-filter-btn" data-source="google">Google</button>
+                <button class="news-filter-btn" data-source="deepseek">DeepSeek</button>
+                <button class="news-filter-btn" data-source="china">国内</button>
+            </div>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+        <div class="news-footer">
+            <button class="load-more-btn" id="loadMoreNews">加载更多资讯 ↓</button>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-text">
@@ -1081,11 +2385,128 @@
         // State
         let currentScenario = 'all';
         let currentSort = 'price-asc';
+        let currentNewsSource = 'all';
+        let newsPage = 0;
+        const newsPerPage = 6;
+
+        // News Data
+        const newsData = [
+            {
+                source: 'openai',
+                sourceName: 'OpenAI',
+                title: 'OpenAI 发布 GPT-5，超越人类专家水平',
+                summary: 'OpenAI 官方宣布 GPT-5 正式发布，在多项基准测试中超越人类专家表现，支持多模态理解和高级推理能力。',
+                date: '2026-04-15',
+                tags: ['model', 'feature'],
+                url: 'https://openai.com'
+            },
+            {
+                source: 'anthropic',
+                sourceName: 'Anthropic',
+                title: 'Claude 4.6 系列支持 100万Token上下文',
+                summary: 'Anthropic 宣布 Claude Opus 4.6 和 Sonnet 4.6 正式支持100万Token超长上下文，价格保持不变。',
+                date: '2026-04-14',
+                tags: ['feature', 'model'],
+                url: 'https://anthropic.com'
+            },
+            {
+                source: 'google',
+                sourceName: 'Google',
+                title: 'Gemini 3.1 Pro 价格下调50%',
+                summary: 'Google 宣布 Gemini 3.1 Pro API 价格下调50%，输入价格降至 $0.5/千Token，输出 $1.5/千Token。',
+                date: '2026-04-13',
+                tags: ['price'],
+                url: 'https://ai.google.dev'
+            },
+            {
+                source: 'deepseek',
+                sourceName: 'DeepSeek',
+                title: 'DeepSeek V3.2 发布，推理能力大幅提升',
+                summary: 'DeepSeek 发布 V3.2 版本，在数学和代码任务上提升30%性能，继续保持高性价比优势。',
+                date: '2026-04-12',
+                tags: ['model', 'feature'],
+                url: 'https://deepseek.com'
+            },
+            {
+                source: 'china',
+                sourceName: '智谱AI',
+                title: 'GLM-4-Flash 永久免费调用',
+                summary: '智谱AI 宣布 GLM-4-Flash 模型永久免费，开发者可无限制调用，适合轻量级应用场景。',
+                date: '2026-04-11',
+                tags: ['price', 'free'],
+                url: 'https://zhipuai.cn'
+            },
+            {
+                source: 'openai',
+                sourceName: 'OpenAI',
+                title: 'o3-mini 正式开放商用',
+                summary: 'OpenAI 推理模型 o3-mini 正式开放商用，支持函数调用和结构化输出，价格为 $0.55/千Token。',
+                date: '2026-04-10',
+                tags: ['model', 'price'],
+                url: 'https://openai.com'
+            },
+            {
+                source: 'anthropic',
+                sourceName: 'Anthropic',
+                title: 'Claude Haiku 4.0 轻量级模型发布',
+                summary: 'Anthropic 发布最轻量的 Claude Haiku 4.0，价格仅 $0.025/千Token，适合大规模简单任务。',
+                date: '2026-04-09',
+                tags: ['model', 'price'],
+                url: 'https://anthropic.com'
+            },
+            {
+                source: 'china',
+                sourceName: '月之暗面',
+                title: 'Kimi 256K 上下文扩展至 200万',
+                summary: '月之暗面将 Kimi 256K 的上下文窗口扩展至200万Token，长文档处理能力翻倍。',
+                date: '2026-04-08',
+                tags: ['feature', 'model'],
+                url: 'https://moonshot.cn'
+            },
+            {
+                source: 'google',
+                sourceName: 'Google',
+                title: 'Gemini 2.5 Flash 支持视频理解',
+                summary: 'Gemini 2.5 Flash 新增视频理解能力，支持视频内容分析和问答，价格保持 $0.075/千Token。',
+                date: '2026-04-07',
+                tags: ['feature', 'model'],
+                url: 'https://ai.google.dev'
+            },
+            {
+                source: 'deepseek',
+                sourceName: 'DeepSeek',
+                title: 'DeepSeek R1 API 价格调整',
+                summary: 'DeepSeek R1 推理模型价格调整，缓存命中输入降至 $0.1/千Token，性价比进一步提升。',
+                date: '2026-04-06',
+                tags: ['price'],
+                url: 'https://deepseek.com'
+            },
+            {
+                source: 'openai',
+                sourceName: 'OpenAI',
+                title: 'GPT-4.1 发布上下文128K版本',
+                summary: 'OpenAI 发布 GPT-4.1 128K 版本，上下文窗口翻倍，价格与标准版相同。',
+                date: '2026-04-05',
+                tags: ['model', 'feature'],
+                url: 'https://openai.com'
+            },
+            {
+                source: 'china',
+                sourceName: '阿里云',
+                title: '通义千问 Qwen3 全系列开源',
+                summary: '阿里云宣布 Qwen3 全系列模型开源，包括 8B、32B、72B 三个版本，支持商业免费使用。',
+                date: '2026-04-04',
+                tags: ['model', 'free'],
+                url: 'https://qwen.ai'
+            }
+        ];
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderModels(models);
+            renderNews();
             setupEventListeners();
+            setupNewsListeners();
         });
 
         // Event Listeners
@@ -1141,6 +2562,29 @@
                     document.getElementById('outputChars').value = data.output;
                 });
             });
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            
+            // Favorites button
+            document.getElementById('favoritesBtn').addEventListener('click', showFavorites);
+            
+            // Shortcuts button
+            document.getElementById('shortcutsBtn').addEventListener('click', openShortcuts);
+            
+            // Close shortcuts modal on backdrop click
+            document.getElementById('shortcutsModal').addEventListener('click', (e) => {
+                if (e.target.id === 'shortcutsModal') closeShortcuts();
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', handleKeyboard);
+            
+            // Initialize theme
+            initTheme();
+            
+            // Initialize favorites
+            initFavorites();
         }
 
         // Filter and Sort
@@ -1269,6 +2713,9 @@
                             <div class="model-name">${model.name}</div>
                             <div class="badges">${badgesHtml}</div>
                         </div>
+                        <button class="favorite-btn" data-favorite="${model.id}" onclick="toggleFavorite('${model.id}')" title="收藏">
+                            ❤️
+                        </button>
                     </div>
 
                     <div class="price-section">
@@ -1409,6 +2856,280 @@
                 closeCalculator();
             }
         });
+        
+        // ==================== Theme Functions ====================
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            showToast('info', '主题切换', newTheme === 'dark' ? '已切换到深色模式 🌙' : '已切换到浅色模式 ☀️');
+        }
+        
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('.theme-icon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // ==================== Favorites Functions ====================
+        function initFavorites() {
+            updateFavoritesCount();
+        }
+        
+        function getFavorites() {
+            const fav = localStorage.getItem('favorites');
+            return fav ? JSON.parse(fav) : [];
+        }
+        
+        function saveFavorites(favorites) {
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            updateFavoritesCount();
+        }
+        
+        function updateFavoritesCount() {
+            const count = getFavorites().length;
+            const countEl = document.getElementById('favCount');
+            countEl.textContent = count;
+            countEl.style.display = count > 0 ? 'flex' : 'none';
+        }
+        
+        function toggleFavorite(modelId) {
+            const favorites = getFavorites();
+            const index = favorites.indexOf(modelId);
+            const model = models.find(m => m.id === modelId);
+            
+            if (index === -1) {
+                favorites.push(modelId);
+                showToast('success', '已收藏', `${model?.name || '模型'} 已添加到收藏 ❤️`);
+            } else {
+                favorites.splice(index, 1);
+                showToast('info', '已取消收藏', `${model?.name || '模型'} 已从收藏移除`);
+            }
+            
+            saveFavorites(favorites);
+            updateFavoriteButton(modelId);
+        }
+        
+        function updateFavoriteButton(modelId) {
+            const btn = document.querySelector(`[data-favorite="${modelId}"]`);
+            if (btn) {
+                const isFav = getFavorites().includes(modelId);
+                btn.classList.toggle('active', isFav);
+            }
+        }
+        
+        function showFavorites() {
+            const favorites = getFavorites();
+            if (favorites.length === 0) {
+                showToast('info', '暂无收藏', '点击卡片上的 ❤️ 来收藏感兴趣的模型');
+                return;
+            }
+            
+            // Filter to show only favorites
+            currentScenario = 'all';
+            document.querySelectorAll('.scenario-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('[data-scenario="all"]').classList.add('active');
+            
+            // Show toast with count
+            showToast('success', '我的收藏', `共 ${favorites.length} 个收藏模型`);
+            
+            // Re-filter
+            filterAndSort();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // ==================== Toast Functions ====================
+        function showToast(type, title, message, duration = 3000) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: '💡'
+            };
+            
+            toast.innerHTML = `
+                <span class="toast-icon">${icons[type] || '💡'}</span>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Auto remove
+            setTimeout(() => {
+                toast.classList.add('toast-out');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+        
+        // ==================== News Functions ====================
+        function setupNewsListeners() {
+            // News filter buttons
+            document.querySelectorAll('.news-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentNewsSource = btn.dataset.source;
+                    newsPage = 0;
+                    renderNews();
+                });
+            });
+            
+            // Load more button
+            document.getElementById('loadMoreNews').addEventListener('click', () => {
+                newsPage++;
+                renderNews(true);
+            });
+        }
+        
+        function renderNews(append = false) {
+            const grid = document.getElementById('newsGrid');
+            
+            // Filter news by source
+            let filteredNews = currentNewsSource === 'all' 
+                ? newsData 
+                : newsData.filter(n => n.source === currentNewsSource);
+            
+            // Paginate
+            const start = 0;
+            const end = (newsPage + 1) * newsPerPage;
+            const pageNews = filteredNews.slice(start, end);
+            
+            // Generate HTML
+            const newsHtml = pageNews.map(news => `
+                <div class="news-card" onclick="window.open('${news.url}', '_blank')">
+                    <div class="news-card-header">
+                        <div class="news-source">
+                            <div class="news-source-icon ${news.source}">${news.sourceName[0]}</div>
+                            <span class="news-source-name">${news.sourceName}</span>
+                        </div>
+                        <span class="news-date">${formatDate(news.date)}</span>
+                    </div>
+                    <h3 class="news-title">${news.title}</h3>
+                    <p class="news-summary">${news.summary}</p>
+                    <div class="news-tags">
+                        ${news.tags.map(tag => `<span class="news-tag ${tag}">${getTagLabel(tag)}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update DOM
+            if (append) {
+                grid.innerHTML += newsHtml;
+            } else {
+                grid.innerHTML = newsHtml;
+            }
+            
+            // Update load more visibility
+            const loadMoreBtn = document.getElementById('loadMoreNews');
+            loadMoreBtn.style.display = end >= filteredNews.length ? 'none' : 'inline-block';
+        }
+        
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const now = new Date();
+            const diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+            
+            if (diff === 0) return '今天';
+            if (diff === 1) return '昨天';
+            if (diff < 7) return `${diff}天前`;
+            if (diff < 30) return `${Math.floor(diff / 7)}周前`;
+            return `${date.getMonth() + 1}月${date.getDate()}日`;
+        }
+        
+        function getTagLabel(tag) {
+            const labels = {
+                price: '💰 价格',
+                model: '🤖 新模型',
+                feature: '✨ 功能',
+                policy: '📋 政策',
+                free: '🆓 免费'
+            };
+            return labels[tag] || tag;
+        }
+        
+        // ==================== Shortcuts Functions ====================
+        function openShortcuts() {
+            document.getElementById('shortcutsModal').classList.add('active');
+        }
+        
+        function closeShortcuts() {
+            document.getElementById('shortcutsModal').classList.remove('active');
+        }
+        
+        function handleKeyboard(e) {
+            // Ctrl/Cmd + K: Focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+                showToast('info', '搜索', '请输入关键词搜索模型');
+            }
+            
+            // Ctrl/Cmd + D: Toggle theme
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                e.preventDefault();
+                toggleTheme();
+            }
+            
+            // Ctrl/Cmd + B: Open calculator
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                openCalculator();
+            }
+            
+            // Escape: Close modals
+            if (e.key === 'Escape') {
+                closeCalculator();
+                closeShortcuts();
+                document.getElementById('compareModal').classList.remove('visible');
+            }
+            
+            // Ctrl/Cmd + ?: Show shortcuts
+            if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+                e.preventDefault();
+                openShortcuts();
+            }
+        }
+        
+        // ==================== Copy Function ====================
+        function copyToClipboard(text, successMsg) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('success', '已复制', successMsg || '已复制到剪贴板');
+                }).catch(() => {
+                    fallbackCopy(text, successMsg);
+                });
+            } else {
+                fallbackCopy(text, successMsg);
+            }
+        }
+        
+        function fallbackCopy(text, successMsg) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('success', '已复制', successMsg || '已复制到剪贴板');
+        }
     </script>
 </body>
 </html>
