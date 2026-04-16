@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.2.0",
-    lastUpdate: "2026-04-16",
+    version: "2.2.1",
+    lastUpdate: "2026-04-17",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -1072,7 +1072,6 @@ const MODELS_DATA = {
             chinaAccessible: true
         },
         {
-                   {
             id: "doubao-seed-lite",
             name: "豆包 Doubao-Seed-1.6-Lite",
             provider: "字节跳动",
