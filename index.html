@@ -1707,6 +1707,159 @@
             }
         }
 
+        /* Resources Section */
+        .resources-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem;
+        }
+
+        .resources-section > h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .resource-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .resource-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+        }
+
+        .resource-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .resource-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.6rem 0.75rem;
+            background: var(--bg-card-hover);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .resource-item:hover {
+            background: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .resource-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .resource-item:hover .resource-name {
+            color: white;
+        }
+
+        .resource-desc {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+
+        .resource-item:hover .resource-desc {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Resources Responsive */
+        @media (max-width: 1200px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resources-section {
+                padding: 0 0.75rem 1.5rem;
+            }
+
+            .resources-section > h2 {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .resource-card {
+                padding: 1rem;
+            }
+
+            .resource-icon {
+                font-size: 1.25rem;
+            }
+
+            .resource-header h3 {
+                font-size: 0.95rem;
+            }
+
+            .resource-item {
+                padding: 0.5rem 0.6rem;
+            }
+
+            .resource-name {
+                font-size: 0.8rem;
+            }
+
+            .resource-desc {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-header {
+                gap: 0.5rem;
+            }
+
+            .resource-icon {
+                font-size: 1.1rem;
+            }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -2363,6 +2516,179 @@
         <div class="news-grid" id="newsGrid"></div>
         <div class="news-footer">
             <button class="load-more-btn" id="loadMoreNews">加载更多资讯 ↓</button>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section" id="resourcesSection">
+        <div class="resources-grid">
+            <!-- Agent Framework -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <span class="resource-icon">🤖</span>
+                    <h3>Agent 框架汇总</h3>
+                </div>
+                <div class="resource-list">
+                    <a href="https://langchain.com" target="_blank" class="resource-item">
+                        <span class="resource-name">LangChain</span>
+                        <span class="resource-desc">最流行的LLM应用开发框架</span>
+                    </a>
+                    <a href="https://docs.anthropic.com/zh-CN/claude/docs/about-claude/extended-thinking" target="_blank" class="resource-item">
+                        <span class="resource-name">Claude Agent SDK</span>
+                        <span class="resource-desc">Anthropic官方Agent开发工具</span>
+                    </a>
+                    <a href="https://python.langchain.com/docs/how_to/conversational_memory/" target="_blank" class="resource-item">
+                        <span class="resource-name">AutoGen</span>
+                        <span class="resource-desc">微软多Agent协作框架</span>
+                    </a>
+                    <a href="https://docs.mem0.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">Mem0</span>
+                        <span class="resource-desc">AI应用记忆层平台</span>
+                    </a>
+                    <a href="https://www.griptape.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">Griptape</span>
+                        <span class="resource-desc">企业级Agent工作流引擎</span>
+                    </a>
+                    <a href="https://docs.dify.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">Dify</span>
+                        <span class="resource-desc">开源LLMOps平台</span>
+                    </a>
+                    <a href="https://www.withmcp.com" target="_blank" class="resource-item">
+                        <span class="resource-name">MCP Hub</span>
+                        <span class="resource-desc">MCP服务器聚合平台</span>
+                    </a>
+                    <a href="https://flowiseai.com" target="_blank" class="resource-item">
+                        <span class="resource-name">Flowise</span>
+                        <span class="resource-desc">可视化LangChain构建器</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- API Aggregators -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <span class="resource-icon">🔌</span>
+                    <h3>API 聚合平台</h3>
+                </div>
+                <div class="resource-list">
+                    <a href="https://openrouter.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">OpenRouter</span>
+                        <span class="resource-desc">统一API接入100+模型</span>
+                    </a>
+                    <a href="https://www.groq.com" target="_blank" class="resource-item">
+                        <span class="resource-name">Groq</span>
+                        <span class="resource-desc">超低延迟推理API</span>
+                    </a>
+                    <a href="https://siliconflow.cn" target="_blank" class="resource-item">
+                        <span class="resource-name">硅基流动</span>
+                        <span class="resource-desc">国内模型API聚合</span>
+                    </a>
+                    <a href="https://www.modelscope.cn" target="_blank" class="resource-item">
+                        <span class="resource-name">ModelScope</span>
+                        <span class="resource-desc">阿里魔搭模型社区</span>
+                    </a>
+                    <a href="https://www.fireworks.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">Fireworks AI</span>
+                        <span class="resource-desc">高性能推理平台</span>
+                    </a>
+                    <a href="https://ai.google.dev/explore/gemini-api" target="_blank" class="resource-item">
+                        <span class="resource-name">Google AI Studio</span>
+                        <span class="resource-desc">Gemini API官方入口</span>
+                    </a>
+                    <a href="https://console.anthropic.com" target="_blank" class="resource-item">
+                        <span class="resource-name">Anthropic Console</span>
+                        <span class="resource-desc">Claude API官方控制台</span>
+                    </a>
+                    <a href="https://platform.openai.com" target="_blank" class="resource-item">
+                        <span class="resource-name">OpenAI Platform</span>
+                        <span class="resource-desc">GPT系列API官方平台</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- MCP Resources -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <span class="resource-icon">🔗</span>
+                    <h3>MCP 资源汇总</h3>
+                </div>
+                <div class="resource-list">
+                    <a href="https://modelcontextprotocol.io" target="_blank" class="resource-item">
+                        <span class="resource-name">MCP 官方文档</span>
+                        <span class="resource-desc">Model Context Protocol规范</span>
+                    </a>
+                    <a href="https://github.com/modelcontextprotocol" target="_blank" class="resource-item">
+                        <span class="resource-name">MCP GitHub</span>
+                        <span class="resource-desc">官方SDK和示例</span>
+                    </a>
+                    <a href="https://smithery.ai" target="_blank" class="resource-item">
+                        <span class="resource-name">Smithery</span>
+                        <span class="resource-desc">MCP服务器市场</span>
+                    </a>
+                    <a href="https://glama.ai/mcp-servers" target="_blank" class="resource-item">
+                        <span class="resource-name">Glama MCP</span>
+                        <span class="resource-desc">MCP服务器发现平台</span>
+                    </a>
+                    <a href="https://github.com/punkpeer/awesome-mcp" target="_blank" class="resource-item">
+                        <span class="resource-name">Awesome MCP</span>
+                        <span class="resource-desc">精选MCP资源列表</span>
+                    </a>
+                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" class="resource-item">
+                        <span class="resource-name">Cursor MCP</span>
+                        <span class="resource-desc">Cursor IDE MCP集成</span>
+                    </a>
+                    <a href="https://docs.github.com/en/copilot/using-github-copilot/using-cls" target="_blank" class="resource-item">
+                        <span class="resource-name">Claude Desktop MCP</span>
+                        <span class="resource-desc">Claude桌面版MCP支持</span>
+                    </a>
+                    <a href="https://platform.baichuan-ai.com" target="_blank" class="resource-item">
+                        <span class="resource-name">百川MCP</span>
+                        <span class="resource-desc">百川AI MCP服务</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- GitHub Trending -->
+            <div class="resource-card">
+                <div class="resource-header">
+                    <span class="resource-icon">⭐</span>
+                    <h3>GitHub 热门项目</h3>
+                </div>
+                <div class="resource-list">
+                    <a href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank" class="resource-item">
+                        <span class="resource-name">DeepSeek V3</span>
+                        <span class="resource-desc">🔥 671B参数开源模型</span>
+                    </a>
+                    <a href="https://github.com/openai/chatgpt-retrieval-plugin" target="_blank" class="resource-item">
+                        <span class="resource-name">ChatGPT Plugins</span>
+                        <span class="resource-desc">OpenAI插件系统</span>
+                    </a>
+                    <a href="https://github.com/langchain-ai/langgraph" target="_blank" class="resource-item">
+                        <span class="resource-name">LangGraph</span>
+                        <span class="resource-desc">多阶段Agent编排</span>
+                    </a>
+                    <a href="https://github.com/microsoft/autogen" target="_blank" class="resource-item">
+                        <span class="resource-name">AutoGen</span>
+                        <span class="resource-desc">🤖 23k+ 多Agent框架</span>
+                    </a>
+                    <a href="https://github.com/poshy001/awesome-ai-agents" target="_blank" class="resource-item">
+                        <span class="resource-name">Awesome AI Agents</span>
+                        <span class="resource-desc">📚 AI Agent资源合集</span>
+                    </a>
+                    <a href="https://github.com/nickcoutsos/AI-Engineers" target="_blank" class="resource-item">
+                        <span class="resource-name">AI-Engineers</span>
+                        <span class="resource-desc">AI工程师必备工具</span>
+                    </a>
+                    <a href="https://github.com/haven-life/awesome-claude" target="_blank" class="resource-item">
+                        <span class="resource-name">Awesome Claude</span>
+                        <span class="resource-desc">Claude生态资源</span>
+                    </a>
+                    <a href="https://github.com/starship/starship" target="_blank" class="resource-item">
+                        <span class="resource-name">Starship</span>
+                        <span class="resource-desc">🚀 AI Shell提示符</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
