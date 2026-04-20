@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.2.1",
-    lastUpdate: "2026-04-17",
+    version: "2.2.2",
+    lastUpdate: "2026-04-20",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -13,8 +13,8 @@ const MODELS_DATA = {
     models: [
         // ========== 顶级旗舰模型 ==========
         {
-            id: "claude-opus-4-6",
-            name: "Claude Opus 4.6",
+            id: "claude-opus-4-7",
+            name: "Claude Opus 4.7",
             provider: "Anthropic",
             providerKey: "anthropic",
             providerLogo: "A",
@@ -24,8 +24,8 @@ const MODELS_DATA = {
             outputPrice: 25.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["代码能力最强", "SWE-bench 80.8%", "深度推理", "安全对齐"],
-            specialties: "编程能力业界最强，SWE-bench测试中创下SOTA，最大输出128K tokens",
+            features: ["代码能力最强", "SWE-bench SOTA", "混合推理", "自适应思考"],
+            specialties: "2026年4月最新旗舰，混合推理模型，自适应思考能力，自我纠错功能，最大输出128K tokens",
             scenarios: ["代码生成", "复杂推理", "长文档分析"],
             capabilities: {
                 coding: 5,
@@ -46,7 +46,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["new"],
+            badges: ["new", "hot"],
             category: ["tier1", "coding", "reasoning"],
             url: "https://www.anthropic.com/api",
             chinaAccessible: false
@@ -130,30 +130,30 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "grok-3",
-            name: "Grok 3",
+            id: "grok-4-20",
+            name: "Grok 4.20",
             provider: "xAI",
             providerKey: "xai",
             providerLogo: "X",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 3.00,
-            outputPrice: 15.00,
-            contextWindow: 128000,
-            contextLabel: "128K",
-            features: ["强推理", "实时信息", "幽默风格", "X平台整合"],
-            specialties: "实时获取X平台信息，回复风格独特",
-            scenarios: ["实时问答", "社交媒体分析"],
+            inputPrice: 2.00,
+            outputPrice: 6.00,
+            contextWindow: 2000000,
+            contextLabel: "2M",
+            features: ["最强Agent调用", "超长2M上下文", "实时信息", "最低幻觉率"],
+            specialties: "2026年3月最新旗舰，2M超长上下文，业界最低幻觉率，超强Agent工具调用能力",
+            scenarios: ["实时问答", "长文档分析", "Agent任务"],
             capabilities: {
                 coding: 4,
                 reasoning: 5,
                 chinese: 3,
                 multimodal: 3,
-                speed: 4,
+                speed: 5,
                 stability: 4
             },
             实测数据: {
-                响应速度: "快",
+                响应速度: "极快",
                 稳定性: "稳定",
                 国内访问: "需代理",
                 并发支持: "中"
@@ -163,8 +163,8 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: [],
-            category: ["tier1", "reasoning"],
+            badges: ["new", "hot"],
+            category: ["tier1", "reasoning", "longcontext"],
             url: "https://x.ai/api",
             chinaAccessible: false
         },
