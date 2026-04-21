@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.2.2",
-    lastUpdate: "2026-04-20",
+    version: "2.2.3",
+    lastUpdate: "2026-04-21",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -91,23 +91,23 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "gpt-5-4",
-            name: "GPT-5.4",
+            id: "gpt-6",
+            name: "GPT-6",
             provider: "OpenAI",
             providerKey: "openai",
             providerLogo: "O",
             tier: 1,
             tierLabel: "顶级旗舰",
             inputPrice: 2.50,
-            outputPrice: 15.00,
-            contextWindow: 400000,
-            contextLabel: "400K",
-            features: ["综合能力均衡", "多模态", "Function Calling", "GPTs生态"],
-            specialties: "综合能力最强，生态最成熟，GPT-5系列最新版",
-            scenarios: ["通用对话", "代码生成", "多模态"],
+            outputPrice: 12.00,
+            contextWindow: 2000000,
+            contextLabel: "2M",
+            features: ["性能暴涨40%", "200万超长上下文", "原生多模态统一", "Super-Agent超级智能体"],
+            specialties: "2026年4月14日发布，代号Spud，5万亿MoE参数，Symphony多模态架构，双系统推理，AGI最后一公里",
+            scenarios: ["通用对话", "代码生成", "多模态", "超长文档", "Agent任务"],
             capabilities: {
                 coding: 5,
-                reasoning: 4,
+                reasoning: 5,
                 chinese: 4,
                 multimodal: 5,
                 speed: 4,
@@ -125,7 +125,7 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: ["hot", "new"],
-            category: ["tier1", "multimodal", "coding"],
+            category: ["tier1", "multimodal", "coding", "reasoning", "longcontext"],
             url: "https://platform.openai.com",
             chinaAccessible: false
         },
