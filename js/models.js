@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.2.4",
-    lastUpdate: "2026-04-22",
+    version: "2.2.5",
+    lastUpdate: "2026-04-23",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -759,6 +759,45 @@ const MODELS_DATA = {
         },
 
         // ========== 国产免费模型 ==========
+        {
+            id: "glm-5-1",
+            name: "GLM-5.1",
+            provider: "智谱AI",
+            providerKey: "zhipuai",
+            providerLogo: "智",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 6.90,
+            outputPrice: 22.90,
+            contextWindow: 200000,
+            contextLabel: "200K",
+            features: ["8小时持续工作", "编程媲美Claude Opus", "开源", "长程Agent任务"],
+            specialties: "4月8日发布，全球首个验证8小时持续工作的开源模型，编程能力达Claude Opus 4.6的94.6%，价格仅1/7，SWE-bench长任务国产SOTA",
+            scenarios: ["长程编码", "复杂Agent任务", "代码生成", "长文档处理"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 5,
+                multimodal: 4,
+                speed: 4,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "快",
+                稳定性: "极稳定",
+                国内访问: "直连",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["china", "hot", "new", "opensource"],
+            category: ["tier1", "china", "coding", "reasoning", "opensource"],
+            url: "https://open.bigmodel.cn",
+            chinaAccessible: true
+        },
         {
             id: "glm-4-plus",
             name: "GLM-4-Plus",
