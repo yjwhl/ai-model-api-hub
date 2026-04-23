@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.2.5",
-    lastUpdate: "2026-04-23",
+    version: "2.3.0",
+    lastUpdate: "2026-04-24",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -24,8 +24,8 @@ const MODELS_DATA = {
             outputPrice: 25.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["代码能力最强", "SWE-bench SOTA", "混合推理", "自适应思考"],
-            specialties: "2026年4月最新旗舰，混合推理模型，自适应思考能力，自我纠错功能，最大输出128K tokens",
+            features: ["代码能力最强", "SWE-bench Pro 64.3%", "混合推理", "自我验证输出"],
+            specialties: "2026年4月16日发布，高级软件工程能力大幅提升，SWE-bench Pro 64.3%（4.6为53.4%），视觉增强，指令执行更精准，最大输出128K tokens",
             scenarios: ["代码生成", "复杂推理", "长文档分析"],
             capabilities: {
                 coding: 5,
@@ -50,6 +50,45 @@ const MODELS_DATA = {
             category: ["tier1", "coding", "reasoning"],
             url: "https://www.anthropic.com/api",
             chinaAccessible: false
+        },
+        {
+            id: "deepseek-v4",
+            name: "DeepSeek V4",
+            provider: "DeepSeek",
+            providerKey: "deepseek",
+            providerLogo: "D",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 0.30,
+            outputPrice: 0.50,
+            contextWindow: 256000,
+            contextLabel: "256K",
+            features: ["万亿参数MoE", "原生Function Calling", "1/18 GPT-5价格", "华为昇腾适配"],
+            specialties: "万亿参数MoE-v2架构，激活参数370B，SWE-bench 58.2，HumanEval 93.5，MATH-500 96.1，深度适配华为昇腾950PR，开源MIT协议",
+            scenarios: ["代码生成", "复杂推理", "数学计算", "长文档"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 5,
+                multimodal: 4,
+                speed: 4,
+                stability: 4
+            },
+            实测数据: {
+                响应速度: "快",
+                稳定性: "稳定",
+                国内访问: "直连",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new", "hot", "china", "opensource"],
+            category: ["tier1", "china", "coding", "reasoning", "opensource"],
+            url: "https://platform.deepseek.com",
+            chinaAccessible: true
         },
         {
             id: "gemini-3-1-pro",
@@ -492,12 +531,12 @@ const MODELS_DATA = {
             providerLogo: "D",
             tier: 3,
             tierLabel: "经济实惠",
-            inputPrice: 0.27,
-            outputPrice: 0.41,
+            inputPrice: 0.28,
+            outputPrice: 0.42,
             contextWindow: 128000,
             contextLabel: "128K",
             features: ["中文性价比极高", "开源", "代码能力强", "快速生成"],
-            specialties: "中文场景性价比最高，开源可商用，缓存命中仅$0.028/M tokens",
+            specialties: "中文场景性价比最高，开源可商用，缓存命中仅$0.028/M tokens，¥2/¥3（百万tokens）",
             scenarios: ["日常对话", "内容创作", "代码生成"],
             capabilities: {
                 coding: 4,
@@ -636,6 +675,45 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: ["hot"],
+            category: ["tier3", "longcontext", "value"],
+            url: "https://ai.google.dev",
+            chinaAccessible: false
+        },
+        {
+            id: "gemini-3-1-flash-lite",
+            name: "Gemini 3.1 Flash-Lite",
+            provider: "Google",
+            providerKey: "google",
+            providerLogo: "G",
+            tier: 3,
+            tierLabel: "经济实惠",
+            inputPrice: 0.25,
+            outputPrice: 1.50,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["Google最具性价比", "百万上下文", "极速响应", "Flash系列"],
+            specialties: "Google称其最具性价比模型，$0.25/$1.50，百万上下文，Batch/Flex半价",
+            scenarios: ["批量处理", "高并发", "成本敏感"],
+            capabilities: {
+                coding: 3,
+                reasoning: 3,
+                chinese: 4,
+                multimodal: 4,
+                speed: 5,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "极高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
             category: ["tier3", "longcontext", "value"],
             url: "https://ai.google.dev",
             chinaAccessible: false
@@ -1186,6 +1264,45 @@ const MODELS_DATA = {
             badges: ["china"],
             category: ["tier2", "china", "reasoning"],
             url: "https://cloud.baidu.com",
+            chinaAccessible: true
+        },
+        {
+            id: "hunyuan-hy3",
+            name: "混元 Hy3 Preview",
+            provider: "腾讯",
+            providerKey: "tencent",
+            providerLogo: "腾",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 1.20,
+            outputPrice: 4.00,
+            contextWindow: 256000,
+            contextLabel: "256K",
+            features: ["快慢思考融合", "295B MoE架构", "Agent能力突出", "开源"],
+            specialties: "4月23日发布，姚顺雨领衔重建后首个模型，295B总参数/21B激活，快慢思考融合MoE，复杂推理和智能体能力全面领先，Token Plan最低28元/月",
+            scenarios: ["复杂推理", "智能体任务", "代码生成", "指令遵循"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 5,
+                multimodal: 4,
+                speed: 4,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "快",
+                稳定性: "极稳定",
+                国内访问: "直连",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["china", "hot", "new", "opensource"],
+            category: ["tier1", "china", "coding", "reasoning"],
+            url: "https://cloud.tencent.com",
             chinaAccessible: true
         },
         {
