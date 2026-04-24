@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.3.0",
-    lastUpdate: "2026-04-24",
+    version: "2.3.1",
+    lastUpdate: "2026-04-25",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -130,20 +130,20 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "gpt-6",
-            name: "GPT-6",
+            id: "gpt-5-5",
+            name: "GPT-5.5",
             provider: "OpenAI",
             providerKey: "openai",
             providerLogo: "O",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 2.50,
-            outputPrice: 12.00,
-            contextWindow: 2000000,
-            contextLabel: "2M",
-            features: ["性能暴涨40%", "200万超长上下文", "原生多模态统一", "Super-Agent超级智能体"],
-            specialties: "2026年4月14日发布，代号Spud，5万亿MoE参数，Symphony多模态架构，双系统推理，AGI最后一公里",
-            scenarios: ["通用对话", "代码生成", "多模态", "超长文档", "Agent任务"],
+            inputPrice: 5.00,
+            outputPrice: 30.00,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["GPT-6两倍定价", "Terminal-Bench 82.7%", "GDPVal 84.9%", "首个完全重训练模型", "Agentic Coding"],
+            specialties: "2026年4月23日发布，OpenAI最智能模型，性能超Claude Opus 4.7和Gemini 3.1 Pro，Terminal-Bench 2.0得分82.7%，GDPVal得分84.9%，首个完全重训练的基础模型，代号Spud，专注复杂专业工作负载",
+            scenarios: ["复杂推理", "代码生成", "科研分析", "企业级Agent", "网络安全"],
             capabilities: {
                 coding: 5,
                 reasoning: 5,
