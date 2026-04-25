@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.3.1",
-    lastUpdate: "2026-04-25",
+    version: "2.3.2",
+    lastUpdate: "2026-04-26",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -52,20 +52,20 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "deepseek-v4",
-            name: "DeepSeek V4",
+            id: "deepseek-v4-flash",
+            name: "DeepSeek V4 Flash",
             provider: "DeepSeek",
             providerKey: "deepseek",
             providerLogo: "D",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 0.30,
-            outputPrice: 0.50,
-            contextWindow: 256000,
-            contextLabel: "256K",
-            features: ["万亿参数MoE", "原生Function Calling", "1/18 GPT-5价格", "华为昇腾适配"],
-            specialties: "万亿参数MoE-v2架构，激活参数370B，SWE-bench 58.2，HumanEval 93.5，MATH-500 96.1，深度适配华为昇腾950PR，开源MIT协议",
-            scenarios: ["代码生成", "复杂推理", "数学计算", "长文档"],
+            inputPrice: 0.14,
+            outputPrice: 0.28,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["1M超长上下文", "缓存$0.028/M", "万亿参数MoE", "华为昇腾适配"],
+            specialties: "万亿参数MoE-v2架构，原V4更名为V4 Flash，上下文从256K扩展至1M，缓存命中仅$0.028/M，最大输出384K tokens，旧chat/reasoner接口已映射至此",
+            scenarios: ["代码生成", "复杂推理", "数学计算", "超长文档"],
             capabilities: {
                 coding: 5,
                 reasoning: 5,
@@ -86,7 +86,46 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: ["new", "hot", "china", "opensource"],
-            category: ["tier1", "china", "coding", "reasoning", "opensource"],
+            category: ["tier1", "china", "coding", "reasoning", "opensource", "longcontext"],
+            url: "https://platform.deepseek.com",
+            chinaAccessible: true
+        },
+        {
+            id: "deepseek-v4-pro",
+            name: "DeepSeek V4 Pro",
+            provider: "DeepSeek",
+            providerKey: "deepseek",
+            providerLogo: "D",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 1.74,
+            outputPrice: 3.48,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["1M超长上下文", "性能旗舰", "输出比GPT-5.5便宜8.6倍", "限时75折"],
+            specialties: "DeepSeek最强性能旗舰，$1.74/$3.48（百万tokens），输出成本仅为GPT-5.5的1/8.6，1M上下文+384K输出，限时75折至5月5日（折后$0.435/$0.87），缓存命中$0.145/M",
+            scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 5,
+                multimodal: 4,
+                speed: 4,
+                stability: 4
+            },
+            实测数据: {
+                响应速度: "较快",
+                稳定性: "稳定",
+                国内访问: "直连",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new", "hot", "china"],
+            category: ["tier1", "china", "coding", "reasoning", "longcontext"],
             url: "https://platform.deepseek.com",
             chinaAccessible: true
         },
@@ -169,6 +208,45 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
+            id: "grok-4-1-fast",
+            name: "Grok 4.1 Fast",
+            provider: "xAI",
+            providerKey: "xai",
+            providerLogo: "X",
+            tier: 3,
+            tierLabel: "经济实惠",
+            inputPrice: 0.20,
+            outputPrice: 0.50,
+            contextWindow: 2000000,
+            contextLabel: "2M",
+            features: ["2M超长上下文", "极速响应", "缓存75%折扣", "实时信息"],
+            specialties: "xAI最新经济型模型，$0.20/$0.50（百万tokens），2M超长上下文，缓存命中仅$0.05/M，性价比极高",
+            scenarios: ["长文档分析", "实时问答", "高并发任务"],
+            capabilities: {
+                coding: 4,
+                reasoning: 4,
+                chinese: 3,
+                multimodal: 3,
+                speed: 5,
+                stability: 4
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "稳定",
+                国内访问: "需代理",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
+            category: ["tier3", "longcontext", "value"],
+            url: "https://x.ai/api",
+            chinaAccessible: false
+        },
+        {
             id: "grok-4-20",
             name: "Grok 4.20",
             provider: "xAI",
@@ -180,8 +258,8 @@ const MODELS_DATA = {
             outputPrice: 6.00,
             contextWindow: 2000000,
             contextLabel: "2M",
-            features: ["最强Agent调用", "超长2M上下文", "实时信息", "最低幻觉率"],
-            specialties: "2026年3月最新旗舰，2M超长上下文，业界最低幻觉率，超强Agent工具调用能力",
+            features: ["最强Agent调用", "超长2M上下文", "四智能体交叉验证", "最低幻觉率"],
+            specialties: "2026年3月最新旗舰，2M超长上下文，业界最低幻觉率，四内部智能体（Grok/Harper/Benjamin/Lucas）交叉验证辩论，超强Agent工具调用能力",
             scenarios: ["实时问答", "长文档分析", "Agent任务"],
             capabilities: {
                 coding: 4,
@@ -204,6 +282,45 @@ const MODELS_DATA = {
             },
             badges: ["new", "hot"],
             category: ["tier1", "reasoning", "longcontext"],
+            url: "https://x.ai/api",
+            chinaAccessible: false
+        },
+        {
+            id: "grok-code-fast-1",
+            name: "Grok Code Fast 1",
+            provider: "xAI",
+            providerKey: "xai",
+            providerLogo: "X",
+            tier: 2,
+            tierLabel: "性价比首选",
+            inputPrice: 0.20,
+            outputPrice: 1.50,
+            contextWindow: 256000,
+            contextLabel: "256K",
+            features: ["Agent编程专用", "缓存90%折扣", "代码审查优化", "CI流水线"],
+            specialties: "xAI专为智能体编程打造，$0.20/$1.50（百万tokens），256K上下文，缓存命中仅$0.02/M，针对大型代码库和CI流水线优化",
+            scenarios: ["智能体编程", "代码审查", "CI流水线", "大规模代码库"],
+            capabilities: {
+                coding: 5,
+                reasoning: 4,
+                chinese: 3,
+                multimodal: 2,
+                speed: 5,
+                stability: 4
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "稳定",
+                国内访问: "需代理",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
+            category: ["tier2", "coding", "value"],
             url: "https://x.ai/api",
             chinaAccessible: false
         },
