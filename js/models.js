@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.3.2",
-    lastUpdate: "2026-04-26",
+    version: "2.3.3",
+    lastUpdate: "2026-04-27",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -102,8 +102,8 @@ const MODELS_DATA = {
             outputPrice: 3.48,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "输出比GPT-5.5便宜8.6倍", "限时75折"],
-            specialties: "DeepSeek最强性能旗舰，$1.74/$3.48（百万tokens），输出成本仅为GPT-5.5的1/8.6，1M上下文+384K输出，限时75折至5月5日（折后$0.435/$0.87），缓存命中$0.145/M",
+            features: ["1M超长上下文", "性能旗舰", "缓存降至1/10", "限时75折"],
+            specialties: "DeepSeek最强性能旗舰，¥12/¥24（百万tokens），正式价输入缓存命中降至¥1/M（降至首发价1/10），限时75折至5月5日（折后¥3/¥6，缓存仅¥0.025/M），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -208,7 +208,44 @@ const MODELS_DATA = {
             chinaAccessible: false
         },
         {
-            id: "grok-4-1-fast",
+            id: "gpt-5-5-pro",
+            name: "GPT-5.5 Pro",
+            provider: "OpenAI",
+            providerKey: "openai",
+            providerLogo: "O",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 30.00,
+            outputPrice: 180.00,
+            contextWindow: 1100000,
+            contextLabel: "1.1M",
+            features: ["最高精度旗舰", "深度推理专用", "Agent循环优化", "1.1M超长上下文"],
+            specialties: "GPT-5.5旗舰高精度版，$30/$180（百万tokens），1.1M上下文窗口，专为深度推理和高精度Agentic任务设计，延迟与GPT-5.4相当，全球最贵API之一",
+            scenarios: ["复杂推理", "高精度Agent任务", "科研分析", "企业旗舰场景"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 4,
+                multimodal: 5,
+                speed: 3,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "中等",
+                稳定性: "极稳定",
+                国内访问: "需代理",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["new"],
+            category: ["tier1", "multimodal", "coding", "reasoning", "longcontext"],
+            url: "https://platform.openai.com",
+            chinaAccessible: false
+        },
             name: "Grok 4.1 Fast",
             provider: "xAI",
             providerKey: "xai",

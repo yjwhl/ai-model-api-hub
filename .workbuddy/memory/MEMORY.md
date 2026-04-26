@@ -16,21 +16,21 @@
 
 ## 涵盖模型
 ### 海外厂商
-- OpenAI: GPT-5, o3, GPT-4.1, o4-mini等
-- Anthropic: Claude Opus 4.6, Claude Sonnet 4.6, Claude Haiku等
-- Google: Gemini 3.1 Pro, Gemini 2.5 Flash等
-- DeepSeek: DeepSeek R1, DeepSeek V3.2
+- OpenAI: GPT-5.5, GPT-5.5 Pro, o3, GPT-4.1, o4-mini等
+- Anthropic: Claude Opus 4.7, Claude Sonnet 4.6, Claude Haiku 4.5等
+- Google: Gemini 3.1 Pro, Gemini 3.1 Flash-Lite, Gemini 2.5 Flash等
+- DeepSeek: DeepSeek V4 Flash, DeepSeek V4 Pro, DeepSeek R1, DeepSeek V3.2
 - Meta: Llama 3.3 70B
 - Mistral: Mistral Small 3.1
-- xAI: Grok 3
+- xAI: Grok 4.20, Grok 4.1 Fast, Grok Code Fast 1
 
 ### 国产厂商
-- 智谱AI: GLM-4-Flash (永久免费), GLM-Z1-Flash
-- 月之暗面: Kimi 256K
-- 阿里云: 通义千问Qwen3系列
+- 智谱AI: GLM-5.1, GLM-4-Plus, GLM-4-FlashX, GLM-4-Flash(永久免费)
+- 月之暗面: Kimi K2.6, Kimi K2.5
+- 阿里云: 通义千问Qwen3.6 Max, Qwen3 Plus, QwQ-Plus
 - 百度: 文心一言4.0
-- 腾讯: 混元Pro
-- 字节跳动: 豆包Pro
+- 腾讯: 混元Hy3 Preview, 混元Standard, 混元Lite(免费)
+- 字节跳动: 豆包Doubao-Seed-1.6-Lite
 - 讯飞: 星火大模型4.0
 - 上海AI Lab: InternVL3-78B
 
@@ -59,9 +59,9 @@
 ```
 
 ## 部署状态
-- GitHub 仓库：待创建
-- GitHub Pages：待部署
-- 数据更新：可通过编辑 js/models.js 或 GitHub Actions 自动更新
+- GitHub 仓库：https://github.com/yjwhl/ai-model-api-hub.git
+- GitHub Pages：已部署
+- 数据更新：每天6:00自动化更新 + GitHub Actions
 
 ## 自动化任务
 - **大模型API数据每日更新**：每天早上6:00自动执行，搜索最新价格并更新网站数据
@@ -71,7 +71,8 @@
 - 2026-04-10: 添加GitHub部署支持，创建自动化更新工作流
 - 2026-04-10: 专业版v2.0重构
 - 2026-04-15: 新增大模型资讯模块，支持按厂商筛选、加载更多
-- 2026-04-16: 新增资源汇总模块（Agent框架、API聚合平台、MCP资源、GitHub热门项目），每个类目8个链接
+- 2026-04-26: v2.3.2 - DeepSeek V4拆分为Flash/Pro，xAI新增Grok 4.1 Fast和Code Fast 1
+- 2026-04-25: v2.3.1 - GPT-5.5替换GPT-6，性能超Claude和Gemini
   - 能量条价格可视化
   - 场景化成本换算（100次对话、¥1可完成次数）
   - 能力星级评分体系
