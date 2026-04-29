@@ -3,8 +3,8 @@
 // 价格单位：美元/千Token
 
 const MODELS_DATA = {
-    version: "2.3.3",
-    lastUpdate: "2026-04-27",
+    version: "2.3.4",
+    lastUpdate: "2026-04-29",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -102,8 +102,8 @@ const MODELS_DATA = {
             outputPrice: 3.48,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "缓存降至1/10", "限时75折"],
-            specialties: "DeepSeek最强性能旗舰，¥12/¥24（百万tokens），正式价输入缓存命中降至¥1/M（降至首发价1/10），限时75折至5月5日（折后¥3/¥6，缓存仅¥0.025/M），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出",
+            features: ["1M超长上下文", "性能旗舰", "缓存降至1/10", "限时优惠延至5月31日"],
+            specialties: "DeepSeek最强性能旗舰，¥12/¥24（百万tokens），正式价输入缓存命中降至¥1/M（降至首发价1/10），限时2.5折至5月31日（折后¥3/¥6，缓存仅¥0.025/M），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -246,6 +246,8 @@ const MODELS_DATA = {
             url: "https://platform.openai.com",
             chinaAccessible: false
         },
+        {
+            id: "grok-4-1-fast",
             name: "Grok 4.1 Fast",
             provider: "xAI",
             providerKey: "xai",
@@ -1155,12 +1157,12 @@ const MODELS_DATA = {
             providerLogo: "月",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 6.90,
-            outputPrice: 29.00,
+            inputPrice: 0.95,
+            outputPrice: 4.00,
             contextWindow: 262144,
             contextLabel: "256K",
             features: ["长程编码13小时", "超越GPT-5.4代码", "Agent集群调度", "开源可商用"],
-            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，开源可商用",
+            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，$0.95/$4.00（百万tokens），缓存命中仅$0.16/M，开源可商用",
             scenarios: ["长程编码", "复杂Agent任务", "代码生成", "系统级开发"],
             capabilities: {
                 coding: 5,
@@ -1344,21 +1346,21 @@ const MODELS_DATA = {
         },
         {
             id: "doubao-seed-lite",
-            name: "豆包 Doubao-Seed-1.6-Lite",
+            name: "豆包 Doubao-Seed-2.0-Pro",
             provider: "字节跳动",
             providerKey: "bytedance",
             providerLogo: "豆",
-            tier: 3,
-            tierLabel: "经济实惠",
-            inputPrice: 0.30,
-            outputPrice: 0.60,
-            contextWindow: 128000,
-            contextLabel: "128K",
-            features: ["全网最低价", "厘计价时代", "多模态", "高并发"],
-            specialties: "国内最便宜大模型API，0.3元/0.6元（百万tokens），率先进入厘计价时代",
-            scenarios: ["多模态对话", "内容创作", "高并发", "成本敏感场景"],
+            tier: 2,
+            tierLabel: "性价比首选",
+            inputPrice: 0.67,
+            outputPrice: 3.36,
+            contextWindow: 256000,
+            contextLabel: "256K",
+            features: ["256K超长上下文", "多模态视觉", "推理模式", "Function Calling"],
+            specialties: "豆包Seed 2.0 Pro：字节跳动最新旗舰，$0.67/$3.36（百万tokens），256K上下文，支持视觉输入、函数调用和推理模式，价格低于Claude Sonnet 4.6的1/4",
+            scenarios: ["多模态对话", "代码生成", "长文档分析", "复杂推理"],
             capabilities: {
-                coding: 4,
+                coding: 5,
                 reasoning: 4,
                 chinese: 5,
                 multimodal: 5,
@@ -1377,7 +1379,7 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: ["china", "hot", "value", "new"],
-            category: ["tier3", "multimodal", "china", "value"],
+            category: ["tier2", "multimodal", "china", "value"],
             url: "https://www.volcengine.com/product/doubao",
             chinaAccessible: true
         },
