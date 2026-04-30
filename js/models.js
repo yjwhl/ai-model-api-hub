@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.0
+// 大模型API数据 - 专业版 v2.3.5
 // 换算标准：1000 Token ≈ 750 汉字
-// 价格单位：美元/千Token
+// 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.3.4",
-    lastUpdate: "2026-04-29",
+    version: "2.3.5",
+    lastUpdate: "2026-05-01",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -98,12 +98,12 @@ const MODELS_DATA = {
             providerLogo: "D",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 1.74,
-            outputPrice: 3.48,
+            inputPrice: 3.00,
+            outputPrice: 6.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "缓存降至1/10", "限时优惠延至5月31日"],
-            specialties: "DeepSeek最强性能旗舰，¥12/¥24（百万tokens），正式价输入缓存命中降至¥1/M（降至首发价1/10），限时2.5折至5月31日（折后¥3/¥6，缓存仅¥0.025/M），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
+            features: ["1M超长上下文", "性能旗舰", "2.5折优惠", "优惠延至5月31日"],
+            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens），限时2.5折至5月31日（折后¥3/¥6），缓存命中仅¥0.025/M（降至首发价1/10），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -1001,12 +1001,12 @@ const MODELS_DATA = {
             providerLogo: "智",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 6.90,
-            outputPrice: 22.90,
+            inputPrice: 6.00,
+            outputPrice: 24.00,
             contextWindow: 200000,
             contextLabel: "200K",
-            features: ["8小时持续工作", "编程媲美Claude Opus", "开源", "长程Agent任务"],
-            specialties: "4月8日发布，全球首个验证8小时持续工作的开源模型，编程能力达Claude Opus 4.6的94.6%，价格仅1/7，SWE-bench长任务国产SOTA",
+            features: ["8小时持续工作", "编程媲美Claude Opus", "开源", "长程Agent任务", "阶梯定价"],
+            specialties: "4月8日发布，全球首个验证8小时持续工作的开源模型。官方定价：0-32K输入¥6/百万tokens、输出¥24；32K以上输入¥8、输出¥28。编程能力达Claude Opus 4.6的94.6%，SWE-bench长任务国产SOTA",
             scenarios: ["长程编码", "复杂Agent任务", "代码生成", "长文档处理"],
             capabilities: {
                 coding: 5,
@@ -1228,19 +1228,19 @@ const MODELS_DATA = {
             chinaAccessible: true
         },
         {
-            id: "qwen3-6-max",
-            name: "通义千问 Qwen3.6 Max",
+            id: "qwen3-max",
+            name: "通义千问 Qwen3-Max",
             provider: "阿里云",
             providerKey: "aliyun",
             providerLogo: "阿",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 2.62,
-            outputPrice: 10.50,
-            contextWindow: 262144,
-            contextLabel: "262K",
-            features: ["万亿MoE参数", "智能体编程SOTA", "超越Qwen3 Max", "262K上下文"],
-            specialties: "4月20日发布，1万亿MoE参数，Agent编程能力超越前代，SWE-Bench Pro得分57.30，综合实力居国产前列",
+            inputPrice: 2.50,
+            outputPrice: 10.00,
+            contextWindow: 131072,
+            contextLabel: "131K",
+            features: ["万亿参数", "阶梯定价", "131K上下文", "Agent编程SOTA"],
+            specialties: "阿里云通义千问旗舰模型，阶梯定价：0-32K输入¥2.5/百万tokens、输出¥10；32K-128K输入¥4、输出¥16；128K-252K输入¥7、输出¥28",
             scenarios: ["复杂推理", "代码生成", "智能体任务", "长文档"],
             capabilities: {
                 coding: 5,
@@ -1253,6 +1253,45 @@ const MODELS_DATA = {
             实测数据: {
                 响应速度: "中等",
                 稳定性: "极稳定",
+                国内访问: "直连",
+                并发支持: "高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["china", "hot"],
+            category: ["tier1", "china", "coding", "reasoning"],
+            url: "https://bailian.console.aliyun.com",
+            chinaAccessible: true
+        },
+        {
+            id: "qwen3-6-max-preview",
+            name: "通义千问 Qwen3.6-Max-Preview",
+            provider: "阿里云",
+            providerKey: "aliyun",
+            providerLogo: "阿",
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 18.37,
+            outputPrice: 73.50,
+            contextWindow: 262144,
+            contextLabel: "262K",
+            features: ["1万亿MoE参数", "Preview测试版", "262K上下文", "Agent编程SOTA"],
+            specialties: "4月20日发布Preview版，1万亿MoE参数，Agent编程能力超越前代，SWE-Bench Pro得分57.30，综合实力居国产前列，正式版待发布",
+            scenarios: ["复杂推理", "代码生成", "智能体任务", "长文档"],
+            capabilities: {
+                coding: 5,
+                reasoning: 5,
+                chinese: 5,
+                multimodal: 4,
+                speed: 3,
+                stability: 4
+            },
+            实测数据: {
+                响应速度: "中等",
+                稳定性: "稳定",
                 国内访问: "直连",
                 并发支持: "高"
             },
@@ -1345,19 +1384,19 @@ const MODELS_DATA = {
             chinaAccessible: true
         },
         {
-            id: "doubao-seed-lite",
+            id: "doubao-seed-2.0-pro",
             name: "豆包 Doubao-Seed-2.0-Pro",
             provider: "字节跳动",
             providerKey: "bytedance",
             providerLogo: "豆",
             tier: 2,
             tierLabel: "性价比首选",
-            inputPrice: 0.67,
-            outputPrice: 3.36,
-            contextWindow: 256000,
-            contextLabel: "256K",
-            features: ["256K超长上下文", "多模态视觉", "推理模式", "Function Calling"],
-            specialties: "豆包Seed 2.0 Pro：字节跳动最新旗舰，$0.67/$3.36（百万tokens），256K上下文，支持视觉输入、函数调用和推理模式，价格低于Claude Sonnet 4.6的1/4",
+            inputPrice: 3.20,
+            outputPrice: 16.00,
+            contextWindow: 128000,
+            contextLabel: "128K",
+            features: ["Seed 2.0系列", "128K上下文", "缓存命中¥0.8", "Batch 45%折扣"],
+            specialties: "字节跳动最新旗舰，¥3.2/¥16（百万tokens），128K上下文，缓存命中¥0.8/M，Batch调用45%折扣，综合性能匹敌GPT-5.2和Gemini 3 Pro",
             scenarios: ["多模态对话", "代码生成", "长文档分析", "复杂推理"],
             capabilities: {
                 coding: 5,
@@ -1380,6 +1419,45 @@ const MODELS_DATA = {
             },
             badges: ["china", "hot", "value", "new"],
             category: ["tier2", "multimodal", "china", "value"],
+            url: "https://www.volcengine.com/product/doubao",
+            chinaAccessible: true
+        },
+        {
+            id: "doubao-seed-2-0-lite",
+            name: "豆包 Doubao-Seed-2.0-Lite",
+            provider: "字节跳动",
+            providerKey: "bytedance",
+            providerLogo: "豆",
+            tier: 3,
+            tierLabel: "经济实惠",
+            inputPrice: 0.60,
+            outputPrice: 3.66,
+            contextWindow: 64000,
+            contextLabel: "64K",
+            features: ["高速低价", "64K上下文", "缓存命中¥0.15", "Batch 50%折扣"],
+            specialties: "Doubao-Seed-2.0-Lite：¥0.6/¥3.66（百万tokens），64K上下文，缓存命中¥0.15/M，Batch调用50%折扣，性价比极高",
+            scenarios: ["日常对话", "内容创作", "高频任务"],
+            capabilities: {
+                coding: 4,
+                reasoning: 3,
+                chinese: 5,
+                multimodal: 3,
+                speed: 5,
+                stability: 5
+            },
+            实测数据: {
+                响应速度: "极快",
+                稳定性: "极稳定",
+                国内访问: "直连",
+                并发支持: "极高"
+            },
+            supports: {
+                streaming: true,
+                functionCall: true,
+                rag: true
+            },
+            badges: ["china", "value", "new"],
+            category: ["tier3", "china", "value"],
             url: "https://www.volcengine.com/product/doubao",
             chinaAccessible: true
         },
@@ -1430,12 +1508,12 @@ const MODELS_DATA = {
             providerLogo: "腾",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 1.20,
-            outputPrice: 4.00,
+            inputPrice: 3.98,
+            outputPrice: 15.90,
             contextWindow: 256000,
             contextLabel: "256K",
-            features: ["快慢思考融合", "295B MoE架构", "Agent能力突出", "开源"],
-            specialties: "4月23日发布，姚顺雨领衔重建后首个模型，295B总参数/21B激活，快慢思考融合MoE，复杂推理和智能体能力全面领先，Token Plan最低28元/月",
+            features: ["快慢思考融合", "295B MoE架构", "Agent能力突出", "开源", "HY 2.0 Think"],
+            specialties: "4月23日发布，姚顺雨领衔重建后首个模型。官方API定价已更新为HY 2.0 Think价格：0-32K输入¥3.975/百万tokens、输出¥15.9；32K-128K输入¥5.3、输出¥21.2。295B总参数/21B激活，快慢思考融合MoE",
             scenarios: ["复杂推理", "智能体任务", "代码生成", "指令遵循"],
             capabilities: {
                 coding: 5,
@@ -1458,7 +1536,7 @@ const MODELS_DATA = {
             },
             badges: ["china", "hot", "new", "opensource"],
             category: ["tier1", "china", "coding", "reasoning"],
-            url: "https://cloud.tencent.com",
+            url: "https://console.cloud.tencent.com/tokenhub/text?modelId=hy3-preview",
             chinaAccessible: true
         },
         {
