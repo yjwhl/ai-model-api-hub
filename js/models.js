@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.3.5
+// 大模型API数据 - 专业版 v2.3.6
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.3.5",
-    lastUpdate: "2026-05-01",
+    version: "2.3.6",
+    lastUpdate: "2026-05-07",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -258,8 +258,8 @@ const MODELS_DATA = {
             outputPrice: 0.50,
             contextWindow: 2000000,
             contextLabel: "2M",
-            features: ["2M超长上下文", "极速响应", "缓存75%折扣", "实时信息"],
-            specialties: "xAI最新经济型模型，$0.20/$0.50（百万tokens），2M超长上下文，缓存命中仅$0.05/M，性价比极高",
+            features: ["2M超长上下文", "极速响应", "缓存75%折扣", "实时信息", "⚠️5月15日弃用"],
+            specialties: "⚠️注意：此模型将于2026年5月15日正式弃用，建议迁移至Grok 4.3。xAI经济型模型，$0.20/$0.50（百万tokens），2M超长上下文，缓存命中仅$0.05/M，性价比极高",
             scenarios: ["长文档分析", "实时问答", "高并发任务"],
             capabilities: {
                 coding: 4,
@@ -280,31 +280,31 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["new"],
+            badges: ["deprecated"],
             category: ["tier3", "longcontext", "value"],
             url: "https://x.ai/api",
             chinaAccessible: false
         },
         {
-            id: "grok-4-20",
-            name: "Grok 4.20",
+            id: "grok-4-3",
+            name: "Grok 4.3",
             provider: "xAI",
             providerKey: "xai",
             providerLogo: "X",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 2.00,
-            outputPrice: 6.00,
-            contextWindow: 2000000,
-            contextLabel: "2M",
-            features: ["最强Agent调用", "超长2M上下文", "四智能体交叉验证", "最低幻觉率"],
-            specialties: "2026年3月最新旗舰，2M超长上下文，业界最低幻觉率，四内部智能体（Grok/Harper/Benjamin/Lucas）交叉验证辩论，超强Agent工具调用能力",
-            scenarios: ["实时问答", "长文档分析", "Agent任务"],
+            inputPrice: 1.25,
+            outputPrice: 2.50,
+            contextWindow: 1000000,
+            contextLabel: "1M",
+            features: ["原生视频输入", "16智能体并行", "最低幻觉率", "207tps超高速", "原生PDF/PPTX输出"],
+            specialties: "2026年4月30日正式发布，xAI新一代旗舰推理模型。价格大幅下调（vs Grok 4.20输入-58%），1M上下文，207tps超高速输出，新增原生视频输入、PDF/XLSX/PPTX文档生成，支持16智能体并行重度模式，内置网页搜索/X搜索/代码执行工具，缓存命中仅$0.31/M",
+            scenarios: ["实时问答", "长文档分析", "Agent任务", "视频理解"],
             capabilities: {
                 coding: 4,
                 reasoning: 5,
                 chinese: 3,
-                multimodal: 3,
+                multimodal: 5,
                 speed: 5,
                 stability: 4
             },
@@ -312,7 +312,7 @@ const MODELS_DATA = {
                 响应速度: "极快",
                 稳定性: "稳定",
                 国内访问: "需代理",
-                并发支持: "中"
+                并发支持: "高"
             },
             supports: {
                 streaming: true,
@@ -320,7 +320,7 @@ const MODELS_DATA = {
                 rag: true
             },
             badges: ["new", "hot"],
-            category: ["tier1", "reasoning", "longcontext"],
+            category: ["tier1", "reasoning", "multimodal", "longcontext"],
             url: "https://x.ai/api",
             chinaAccessible: false
         },
