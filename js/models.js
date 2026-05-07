@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.3.6
+// 大模型API数据 - 专业版 v2.3.7
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.3.6",
-    lastUpdate: "2026-05-07",
+    version: "2.3.7",
+    lastUpdate: "2026-05-08",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -336,8 +336,8 @@ const MODELS_DATA = {
             outputPrice: 1.50,
             contextWindow: 256000,
             contextLabel: "256K",
-            features: ["Agent编程专用", "缓存90%折扣", "代码审查优化", "CI流水线"],
-            specialties: "xAI专为智能体编程打造，$0.20/$1.50（百万tokens），256K上下文，缓存命中仅$0.02/M，针对大型代码库和CI流水线优化",
+            features: ["Agent编程专用", "缓存90%折扣", "代码审查优化", "CI流水线", "⚠️5月15日弃用"],
+            specialties: "⚠️注意：此模型将于2026年5月15日正式弃用（xAI官方通知），建议迁移至Grok 4.3。xAI专为智能体编程打造，$0.20/$1.50（百万tokens），256K上下文，缓存命中仅$0.02/M，针对大型代码库和CI流水线优化",
             scenarios: ["智能体编程", "代码审查", "CI流水线", "大规模代码库"],
             capabilities: {
                 coding: 5,
@@ -358,7 +358,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["new"],
+            badges: ["deprecated"],
             category: ["tier2", "coding", "value"],
             url: "https://x.ai/api",
             chinaAccessible: false
