@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.3.9
+// 大模型API数据 - 专业版 v2.4.0
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.3.9",
-    lastUpdate: "2026-05-12",
+    version: "2.4.0",
+    lastUpdate: "2026-05-13",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -98,12 +98,12 @@ const MODELS_DATA = {
             providerLogo: "D",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 3.00,
-            outputPrice: 6.00,
+            inputPrice: 12.00,
+            outputPrice: 24.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "2.5折优惠", "⏳优惠5月31日到期"],
-            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens），限时2.5折至2026年5月31日23:59（折后¥3/¥6），⚠️优惠即将到期，6月起恢复原价¥12/¥24，缓存命中仅¥0.025/M（降至首发价1/10），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
+            features: ["1M超长上下文", "性能旗舰", "⚠️优惠5月31日已到期", "原价¥12/¥24"],
+            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens）。⚠️2.5折限时优惠已于2026年5月31日23:59正式到期，当前已恢复原价¥12/¥24（非缓存输入），缓存命中价格维持¥0.025/M（降至首发价1/10，永久降价）。输出成本仅为GPT-5.5的1/15，1M上下文+384K输出，是高价值任务的高性价比选择",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -124,7 +124,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["new", "hot", "china"],
+            badges: ["china"],
             category: ["tier1", "china", "coding", "reasoning", "longcontext"],
             url: "https://platform.deepseek.com",
             chinaAccessible: true
@@ -1162,7 +1162,7 @@ const MODELS_DATA = {
             contextWindow: 262144,
             contextLabel: "256K",
             features: ["长程编码13小时", "超越GPT-5.4代码", "Agent集群调度", "开源可商用"],
-            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，$0.95/$4.00（百万tokens），缓存命中仅$0.16/M，开源可商用。5月月之暗面完成20亿美元融资（美团龙珠领投），投后估值超200亿美元；下一代Kimi K3预计Q3发布，参数2.5万亿",
+            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，$0.95/$4.00（百万tokens），缓存命中仅$0.16/M，开源可商用。月之暗面已完成20亿美元融资（美团龙珠领投），投后估值超200亿美元；下一代Kimi K3预计Q3 2026发布，参数规模2.5万亿（K2翻倍），上下文1M+，国产新旗舰值得关注",
             scenarios: ["长程编码", "复杂Agent任务", "代码生成", "系统级开发"],
             capabilities: {
                 coding: 5,
