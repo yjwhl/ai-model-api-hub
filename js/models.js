@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.3.7
+// 大模型API数据 - 专业版 v2.3.9
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.3.7",
-    lastUpdate: "2026-05-08",
+    version: "2.3.9",
+    lastUpdate: "2026-05-12",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -102,8 +102,8 @@ const MODELS_DATA = {
             outputPrice: 6.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "2.5折优惠", "优惠延至5月31日"],
-            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens），限时2.5折至5月31日（折后¥3/¥6），缓存命中仅¥0.025/M（降至首发价1/10），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
+            features: ["1M超长上下文", "性能旗舰", "2.5折优惠", "⏳优惠5月31日到期"],
+            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens），限时2.5折至2026年5月31日23:59（折后¥3/¥6），⚠️优惠即将到期，6月起恢复原价¥12/¥24，缓存命中仅¥0.025/M（降至首发价1/10），输出成本仅为GPT-5.5的1/51，1M上下文+384K输出，昇腾950超节点批量上市后价格将进一步下调",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -258,8 +258,8 @@ const MODELS_DATA = {
             outputPrice: 0.50,
             contextWindow: 2000000,
             contextLabel: "2M",
-            features: ["2M超长上下文", "极速响应", "缓存75%折扣", "实时信息", "⚠️5月15日弃用"],
-            specialties: "⚠️注意：此模型将于2026年5月15日正式弃用，建议迁移至Grok 4.3。xAI经济型模型，$0.20/$0.50（百万tokens），2M超长上下文，缓存命中仅$0.05/M，性价比极高",
+            features: ["2M超长上下文", "极速响应", "缓存75%折扣", "实时信息", "⛔已停止服务"],
+            specialties: "⛔已停止服务：此模型已于2026年5月15日12:00 PT正式退役（xAI官方通知），API调用返回错误，请迁移至Grok 4.3（$1.25/$2.50，1M上下文，性能大幅提升）。原定价：$0.20/$0.50（百万tokens），2M超长上下文，缓存命中仅$0.05/M",
             scenarios: ["长文档分析", "实时问答", "高并发任务"],
             capabilities: {
                 coding: 4,
@@ -336,8 +336,8 @@ const MODELS_DATA = {
             outputPrice: 1.50,
             contextWindow: 256000,
             contextLabel: "256K",
-            features: ["Agent编程专用", "缓存90%折扣", "代码审查优化", "CI流水线", "⚠️5月15日弃用"],
-            specialties: "⚠️注意：此模型将于2026年5月15日正式弃用（xAI官方通知），建议迁移至Grok 4.3。xAI专为智能体编程打造，$0.20/$1.50（百万tokens），256K上下文，缓存命中仅$0.02/M，针对大型代码库和CI流水线优化",
+            features: ["Agent编程专用", "缓存90%折扣", "代码审查优化", "CI流水线", "⛔已停止服务"],
+            specialties: "⛔已停止服务：此模型已于2026年5月15日正式退役（xAI官方通知），API调用返回错误，建议迁移至Grok 4.3（$1.25/$2.50，1M上下文，内置代码执行工具）。xAI专为智能体编程打造，原$0.20/$1.50（百万tokens），256K上下文，缓存命中仅$0.02/M，针对大型代码库和CI流水线优化",
             scenarios: ["智能体编程", "代码审查", "CI流水线", "大规模代码库"],
             capabilities: {
                 coding: 5,
@@ -1162,7 +1162,7 @@ const MODELS_DATA = {
             contextWindow: 262144,
             contextLabel: "256K",
             features: ["长程编码13小时", "超越GPT-5.4代码", "Agent集群调度", "开源可商用"],
-            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，$0.95/$4.00（百万tokens），缓存命中仅$0.16/M，开源可商用",
+            specialties: "4月20日发布，最强代码Agent模型，可不间断编码13小时，多项基准超越GPT-5.4和Claude Opus 4.6，$0.95/$4.00（百万tokens），缓存命中仅$0.16/M，开源可商用。5月月之暗面完成20亿美元融资（美团龙珠领投），投后估值超200亿美元；下一代Kimi K3预计Q3发布，参数2.5万亿",
             scenarios: ["长程编码", "复杂Agent任务", "代码生成", "系统级开发"],
             capabilities: {
                 coding: 5,
@@ -1434,8 +1434,8 @@ const MODELS_DATA = {
             outputPrice: 3.66,
             contextWindow: 64000,
             contextLabel: "64K",
-            features: ["高速低价", "64K上下文", "缓存命中¥0.15", "Batch 50%折扣"],
-            specialties: "Doubao-Seed-2.0-Lite：¥0.6/¥3.66（百万tokens），64K上下文，缓存命中¥0.15/M，Batch调用50%折扣，性价比极高",
+            features: ["全模态理解升级", "视频/图像/音频/文本", "64K上下文", "缓存命中¥0.15", "Batch 50%折扣"],
+            specialties: "2026年5月6日升级为豆包家族首款全模态理解模型，原生支持视频、图像、音频、文本四大模态统一理解，Agent/Coding/GUI能力同步升级，同等算力成本下多模态理解超越前代Pro版本。¥0.6/¥3.66（百万tokens），64K上下文，缓存命中¥0.15/M，Batch调用50%折扣，性价比极高",
             scenarios: ["日常对话", "内容创作", "高频任务"],
             capabilities: {
                 coding: 4,
