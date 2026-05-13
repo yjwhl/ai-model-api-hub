@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.4.0
+// 大模型API数据 - 专业版 v2.4.1
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.4.0",
-    lastUpdate: "2026-05-13",
+    version: "2.4.1",
+    lastUpdate: "2026-05-14",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -98,12 +98,12 @@ const MODELS_DATA = {
             providerLogo: "D",
             tier: 1,
             tierLabel: "顶级旗舰",
-            inputPrice: 12.00,
-            outputPrice: 24.00,
+            inputPrice: 3.00,
+            outputPrice: 6.00,
             contextWindow: 1000000,
             contextLabel: "1M",
-            features: ["1M超长上下文", "性能旗舰", "⚠️优惠5月31日已到期", "原价¥12/¥24"],
-            specialties: "DeepSeek最强性能旗舰，官方价¥12/¥24（百万tokens）。⚠️2.5折限时优惠已于2026年5月31日23:59正式到期，当前已恢复原价¥12/¥24（非缓存输入），缓存命中价格维持¥0.025/M（降至首发价1/10，永久降价）。输出成本仅为GPT-5.5的1/15，1M上下文+384K输出，是高价值任务的高性价比选择",
+            features: ["1M超长上下文", "性能旗舰", "⏳优惠5月31日到期", "原价¥12/¥24"],
+            specialties: "DeepSeek最强性能旗舰，⏳2.5折限时优惠截至2026年5月31日23:59，当前折扣价¥3/¥6（非缓存输入/输出，百万tokens）。到期后恢复原价¥12/¥24。缓存命中价格维持¥0.025/M（降至首发价1/10，永久降价）。输出成本仅为GPT-5.5的1/15，1M上下文+384K输出，是高价值任务的高性价比选择",
             scenarios: ["企业级推理", "超长文档分析", "复杂代码生成", "高价值任务"],
             capabilities: {
                 coding: 5,
@@ -124,7 +124,7 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["china"],
+            badges: ["china", "hot"],
             category: ["tier1", "china", "coding", "reasoning", "longcontext"],
             url: "https://platform.deepseek.com",
             chinaAccessible: true
@@ -1279,7 +1279,7 @@ const MODELS_DATA = {
             contextWindow: 262144,
             contextLabel: "262K",
             features: ["1万亿MoE参数", "Preview测试版", "262K上下文", "Agent编程SOTA"],
-            specialties: "4月20日发布Preview版，1万亿MoE参数，Agent编程能力超越前代，SWE-Bench Pro得分57.30，综合实力居国产前列，正式版待发布",
+            specialties: "4月20日发布Preview版，1万亿MoE参数，Agent编程能力超越前代，SWE-Bench Pro得分57.30，综合实力居国产前列，正式版待发布。5月13日：通义千问原负责人林俊旸宣布离职创业，首轮估值超20亿美元（约130亿人民币），模型技术路线延续性待观察",
             scenarios: ["复杂推理", "代码生成", "智能体任务", "长文档"],
             capabilities: {
                 coding: 5,
