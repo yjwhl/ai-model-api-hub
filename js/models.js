@@ -1,10 +1,10 @@
-// 大模型API数据 - 专业版 v2.4.1
+// 大模型API数据 - 专业版 v2.4.2
 // 换算标准：1000 Token ≈ 750 汉字
 // 价格单位：国外模型=美元/百万Tokens，国内模型=人民币/百万Tokens
 
 const MODELS_DATA = {
-    version: "2.4.1",
-    lastUpdate: "2026-05-14",
+    version: "2.4.2",
+    lastUpdate: "2026-05-15",
     tokenStandard: {
         tokensPerThousand: 1000,
         chineseCharsPerThousand: 750,
@@ -1462,20 +1462,20 @@ const MODELS_DATA = {
             chinaAccessible: true
         },
         {
-            id: "wenxin-4-0",
-            name: "文心一言 4.0",
+            id: "wenxin-5-1",
+            name: "文心大模型 5.1",
             provider: "百度",
             providerKey: "baidu",
             providerLogo: "百",
-            tier: 2,
-            tierLabel: "性价比首选",
-            inputPrice: 0.80,
-            outputPrice: 2.00,
+            tier: 1,
+            tierLabel: "顶级旗舰",
+            inputPrice: 4.00,
+            outputPrice: 18.00,
             contextWindow: 128000,
             contextLabel: "128K",
-            features: ["数理逻辑强", "行业覆盖广", "企业级", "中文理解"],
-            specialties: "数理逻辑准确率92%+，企业级AI能力",
-            scenarios: ["企业应用", "行业分析", "数理推理"],
+            features: ["Arena搜索国内第一", "Agent能力超DeepSeek V4 Pro", "推理AIME26得分99.6", "预训练成本仅业界6%"],
+            specialties: "2026年5月9日发布。预训练成本仅同规模模型的6%，总参数压缩至文心5.0的1/3，Arena搜索榜全球第4、国内第1。Agent能力超越DeepSeek-V4-Pro，推理AIME26得分99.6（仅次Gemini 3.1 Pro）。API定价（千帆平台）：输入≤32K为¥4/百万tokens，输出¥18/百万tokens；32K-128K输入¥6、输出¥22。阶梯计费",
+            scenarios: ["企业应用", "搜索增强", "Agent任务", "创意写作"],
             capabilities: {
                 coding: 4,
                 reasoning: 5,
@@ -1495,8 +1495,8 @@ const MODELS_DATA = {
                 functionCall: true,
                 rag: true
             },
-            badges: ["china"],
-            category: ["tier2", "china", "reasoning"],
+            badges: ["china", "new", "hot"],
+            category: ["tier1", "china", "reasoning"],
             url: "https://cloud.baidu.com",
             chinaAccessible: true
         },
